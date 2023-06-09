@@ -12,11 +12,11 @@ from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 from transformers import pipeline 
 ### ### ###
 ### ### ### - model and tokenizer set up
-# Choose a pre-trained BERT model
+# Choose a pre-trained BERT model - I have two setup, bert base and pipeline
 model_name = "bert-base-uncased"
 nlp = pipeline("question-answering")
 
-# Load the tokenizer and model
+# Load the tokenizer and model for the bert-base model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForQuestionAnswering.from_pretrained(model_name)
 ### ### ###
@@ -36,7 +36,7 @@ while question != "exit":
         print("OK we are going to exit this session.") 
         break   # terminates the program
     
-    # Tokenize the input
+    # Tokenize the input for bert-base
     inputs = tokenizer.encode_plus(question, context, return_tensors="pt")
     print("***debug output: ",inputs)
     print()
