@@ -207,5 +207,44 @@ result_cls_ids = tf.argmax(my_logits)
 result_cls_ids
 tf.gather(tf.constant(info.features['label'].names), result_cls_ids)
 
+
+
 ### Export the model
+class ExportModel(tf.Module):
+  def __init__(self, input_processor, classifier):
+    self.input_processor = input_processor
+    self.classifier = classifier
+
+  @tf.function(input_signature=[{
+      'sentence1': tf.TensorSpec(shape=[None], dtype=tf.string),
+      'sentence2': tf.TensorSpec(shape=[None], dtype=tf.string)}])
+  def __call__(self, inputs):
+    packed = self.input_processor(inputs)
+    logits =  self.classifier(packed, training=False)
+    result_cls_ids = tf.argmax(logits)
+    return {
+        'logits': logits,
+        'class_id': result_cls_ids,
+        'class': tf.gather(
+            tf.constant(info.features['label'].names),
+            result_cls_ids)
+    }
+# create an instance of this export model and save it
+export_model = ExportModel(bert_inputs_processor, bert_classifier)
+import tempfile
+export_dir=tempfile.mkdtemp(suffix='_saved_model')
+tf.saved_model.save(export_model, export_dir=export_dir,
+                    signatures={'serving_default': export_model.__call__})
+
+# reload the model and compare it to the original
+original_logits = export_model(my_examples)['logits']
+reloaded = tf.saved_model.load(export_dir)
+reloaded_logits = reloaded(my_examples)['logits']
+# The results are identical:
+print(original_logits.numpy())
+print()
+print(reloaded_logits.numpy())
+print(np.mean(abs(original_logits - reloaded_logits)))
+
+### ### ### END
 
