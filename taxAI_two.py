@@ -1,7 +1,9 @@
 #Bryan Miletta - CS995 Capstone
 #TaxAI
 #level: Sandbox
-#summary:this code shows how to setup local folders with text files to distinguish between pos and neg reviews.
+#summary:this code is testing setting up a Q/A BERT model that allows user input. 
+#it accesses local folders that already have text files and uses them for training. Specifically this uses pos neg movie reviews. It trains, tests, and evaluates
+
 
 ### ### ### Import Libraries
 import random
