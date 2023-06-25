@@ -2,115 +2,97 @@
 #TaxAI
 #level: Sandbox
 #summary:this code is testing setting up a Q/A BERT model that allows user input. 
-#it creates a locally saved .csv file, reformats it for training, trains, and then answers questions
+#it accesses local folders that already have text files and uses them for training. Specifically this uses pos neg movie reviews. It trains, tests, and evaluates
+
 
 ### ### ### Import Libraries
-import torch
-import pandas as pd
+import random
 import numpy as np
-### ### ###
-### ### ### Transformers libray download and selections 
-from transformers import BertForQuestionAnswering
-from transformers import BertTokenizer 
-### ### ###
+import tensorflow as tf
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense
+from transformers import AutoTokenizer, TFAutoModel
 
-# data
-coqa = pd.read_json('http://downloads.cs.stanford.edu/nlp/data/coqa/coqa-train-v1.0.json')
-coqa.head()
-# data cleaning
-del coqa["version"]
+def readTextExamples(folder,cl,n) :
+    """ Reads maximum n text files from folder and returns them as a list of
+        list of text and its class label cl."""
+    from glob import glob
+    x = [] # list of text examples and class labels
 
-#required columns in our dataframe
-cols = ["text","question","answer"]
-#list of lists to create our dataframe
-comp_list = []
-for index, row in coqa.iterrows():
-    for i in range(len(row["data"]["questions"])):
-        temp_list = []
-        temp_list.append(row["data"]["story"])
-        temp_list.append(row["data"]["questions"][i]["input_text"])
-        temp_list.append(row["data"]["answers"][i]["input_text"])
-        comp_list.append(temp_list)
-new_df = pd.DataFrame(comp_list, columns=cols) 
-#saving the dataframe to csv file for further loading
-new_df.to_csv("CoQA_data.csv", index=False)
+    files = glob(folder+"/*.txt") # read all text files files
+    for file in files :
+        infile = open(file,"r",encoding="utf-8")
+        data = infile.read()
+        infile.close()
+        x.append([data,cl])
+        if len(x)==n :
+            break
+    return x
 
-# load from csv
-data = pd.read_csv("CoQA_data.csv")
-data.head()
+def readPosNeg(pos_folder,neg_folder,n) :
+    """ Reads maximum n positive and maximum n negative text examples
+        from the respective folders. Randomizes them. Returns the list of
+        text and an np.array of corresponding one-hot class labels [1,0] for pos
+        and [0,1] for neg. """
+    pos = readTextExamples(pos_folder,[1,0],n)
+    neg = readTextExamples(neg_folder,[0,1],n)
+    allEg = pos + neg
+    random.shuffle(allEg)
+    x = []
+    y = []
+    for eg in allEg :
+        x.append(eg[0])
+        y.append(eg[1])
+    return x, np.array(y)
 
-print("Number of question and answers: ", len(data))
+###
+def train_test() :
+    """ Training and testing for text classification using BERT. """
+    maxlen=512 # 512 maximum number of tokens
+    maxTrEg=1000 # maximum number of pos & neg training examples
+    maxTeEg=1000 # maximum number of pos & neg test examples
+    epochs=3 # number of epochs
 
+    # read the data
+    train_x, train_y = readPosNeg("db/train/pos","aclImdb/train/neg",maxTrEg)
+    test_x, test_y = readPosNeg("db/test/pos","aclImdb/test/neg",maxTeEg)
 
-### ### ### - model and tokenizer set up
-# Choose a pre-trained BERT model 
-model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
+    # tokenize train and test set
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+    tokenized_train = tokenizer(train_x, max_length=maxlen, truncation=True,
+                                padding=True, return_tensors="tf")
+    tokenized_test = tokenizer(test_x, max_length=maxlen, truncation=True,
+                                padding=True, return_tensors="tf")
 
-# Load the tokenizer and model for the bert-base model
-tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
-### ### ###
-
-# asking a question
-def question_answer(question, text):
+    # build the model
+    bert_model = TFAutoModel.from_pretrained("bert-base-cased")
+    bert_model.trainable = False
     
-    #tokenize question and text as a pair
-    input_ids = tokenizer.encode(question, text)
-    
-    #string version of tokenized ids
-    tokens = tokenizer.convert_ids_to_tokens(input_ids)
-    
-    #segment IDs
-    #first occurence of [SEP] token
-    sep_idx = input_ids.index(tokenizer.sep_token_id)
-    #number of tokens in segment A (question)
-    num_seg_a = sep_idx+1
-    #number of tokens in segment B (text)
-    num_seg_b = len(input_ids) - num_seg_a
-    
-    #list of 0s and 1s for segment embeddings
-    segment_ids = [0]*num_seg_a + [1]*num_seg_b
-    assert len(segment_ids) == len(input_ids)
-    
-    #model output using input_ids and segment_ids
-    output = model(torch.tensor([input_ids]), token_type_ids=torch.tensor([segment_ids]))
-    
-    #reconstructing the answer
-    answer_start = torch.argmax(output.start_logits)
-    answer_end = torch.argmax(output.end_logits)
-    if answer_end >= answer_start:
-        answer = tokens[answer_start]
-        for i in range(answer_start+1, answer_end+1):
-            if tokens[i][0:2] == "##":
-                answer += tokens[i][2:]
-            else:
-                answer += " " + tokens[i]
-                
-    if answer.startswith("[CLS]"):
-        answer = "Unable to find the answer to your question."
-    
-    print("\nPredicted answer:\n{}".format(answer.capitalize()))
+    token_ids = Input(shape=(maxlen,), dtype=tf.int32,
+                                      name="token_ids")
+    attention_masks = Input(shape=(maxlen,), dtype=tf.int32,
+                                            name="attention_masks")
+    bert_output = bert_model(token_ids,attention_mask=attention_masks)
 
-### ### ### UI
-# Initial input of context from the user
-#context = input("Enter your context: ")
-text = input("Please enter your text: \n")
-question = input("\nPlease enter your question: \n")
+    output = Dense(2,activation="softmax")(bert_output[0][:,0])
 
-while True:
-    question_answer(question, text)
+    model = Model(inputs=[token_ids,attention_masks],outputs=output)
+
+    # compile
+    model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
+
+    # train
+    model.fit([tokenized_train["input_ids"],tokenized_train["attention_mask"]],
+              train_y, batch_size=25, epochs=epochs)
+
+    # evaluate
+    score = model.evaluate([tokenized_test["input_ids"],tokenized_test["attention_mask"]],test_y,verbose=0)
     
-    flag = True
-    flag_N = False
-    
-    while flag:
-        response = input("\nDo you want to ask another question based on this text (Y/N)? ")
-        if response[0] == "Y":
-            question = input("\nPlease enter your question: \n")
-            flag = False
-        elif response[0] == "N":
-            print("\nBye!")
-            flag = False
-            flag_N = True
-            
-    if flag_N == True:
-        break
+    print("Accuracy on test data:",score[1])
+
+    return model, [tokenized_train["input_ids"],tokenized_train["attention_mask"]], test_y
+
+# Run the code
+train_test()
+
+#End
