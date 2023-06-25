@@ -13,6 +13,31 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense
 from transformers import AutoTokenizer, TFAutoModel
 
+### Data processing
+AUTOTUNE = tf.data.AUTOTUNE
+batch_size = 32
+seed = 42
+raw_train_ds = tf.keras.utils.text_dataset_from_directory(
+    'db/train',
+    batch_size=batch_size,
+    validation_split=0.2,
+    subset='training',
+    seed=seed)
+class_names = raw_train_ds.class_names
+train_ds = raw_train_ds.cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = tf.keras.utils.text_dataset_from_directory(
+    'db/train',
+    batch_size=batch_size,
+    validation_split=0.2,
+    subset='validation',
+    seed=seed)
+val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
+test_ds = tf.keras.utils.text_dataset_from_directory(
+    'db/test',
+    batch_size=batch_size)
+test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+### END Data processing 
+
 def readTextExamples(folder,cl,n) :
     """ Reads maximum n text files from folder and returns them as a list of
         list of text and its class label cl."""
