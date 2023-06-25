@@ -33,3 +33,60 @@ for token,id in zip(tokens,model.input_ids):
     if id== model.tokenizer.sep_token_id:
         print('')
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set(style="darkgrid")
+plt.rcParams["figure.figsize"] = (16,8)
+
+token_labels = []
+for (i, token) in enumerate(tokens):
+    token_labels.append('{:} - {:>2}'.format(token, i))
+
+print(token_labels)
+
+print(start_token_score)
+print(answer_start_index)
+
+# Start Word Scores
+ax = sns.barplot(x=token_labels,y=s_Scores,ci=None)
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha="center")
+ax.grid(True)
+plt.title("Start Word Scores")
+plt.show()
+# End Word Scores
+ax =sns.barplot(x=token_labels,y=e_Scores,ci=None)
+ax.set_xticklabels(ax.get_xticklabels(), rotation=90, ha="center")
+ax.grid(True)
+plt.title("End Word Scores")
+plt.show()
+
+# Visualizing in a single bar plot
+import pandas as pd
+#to store the tokens and scores in a Panda Dataframe
+scores = []
+for (i, token_label) in enumerate(token_labels):
+
+    # Add the token's start score as one row.
+    scores.append({'token_label': token_label, 
+                   'score': s_Scores[i],
+                   'marker': 'start'})
+    
+    # Add  the token's end score as another row.
+    scores.append({'token_label': token_label, 
+                   'score': e_Scores[i],
+                   'marker': 'end'})
+    
+df = pd.DataFrame(scores)
+# Draw a grouped barplot to show start and end scores for each word.
+# The "hue" parameter is where we tell it which datapoints belong to which
+# of the two series.
+g = sns.catplot(x="token_label", y="score", hue="marker", data=df,
+                kind="bar", height=6, aspect=4)
+
+# Turn the xlabels vertical.
+g.set_xticklabels(g.ax.get_xticklabels(), rotation=90, ha="center")
+
+# Turn on the vertical grid to help align words to scores.
+g.ax.grid(True)
+
