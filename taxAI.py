@@ -38,8 +38,8 @@ def answer_question(context, question):
 
 # Load the SQuAD dataset
 processor = SquadV2Processor()
-train_examples = processor.get_train_examples('path/to/train.json')
-dev_examples = processor.get_dev_examples('path/to/dev.json')
+train_examples = processor.get_train_examples('train-v2.0.json')
+dev_examples = processor.get_dev_examples('dev-v2.0.json')
 
 # Convert examples to features
 train_features = squad_convert_examples_to_features(
