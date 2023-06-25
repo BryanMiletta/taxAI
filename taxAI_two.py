@@ -58,14 +58,14 @@ def train_test() :
     test_x, test_y = readPosNeg("db/test/pos","aclImdb/test/neg",maxTeEg)
 
     # tokenize train and test set
-    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
     tokenized_train = tokenizer(train_x, max_length=maxlen, truncation=True,
                                 padding=True, return_tensors="tf")
     tokenized_test = tokenizer(test_x, max_length=maxlen, truncation=True,
                                 padding=True, return_tensors="tf")
 
     # build the model
-    bert_model = TFAutoModel.from_pretrained("distilbert-base-uncased")
+    bert_model = TFAutoModel.from_pretrained("bert-base-cased")
     bert_model.trainable = False
     
     token_ids = Input(shape=(maxlen,), dtype=tf.int32,
