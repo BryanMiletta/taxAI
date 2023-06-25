@@ -12,8 +12,9 @@ import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense
 from transformers import AutoTokenizer, TFAutoModel
+### ### ###
 
-### Data processing
+### ### ### Data processing
 AUTOTUNE = tf.data.AUTOTUNE
 batch_size = 32
 seed = 42
@@ -36,8 +37,9 @@ test_ds = tf.keras.utils.text_dataset_from_directory(
     'db/test',
     batch_size=batch_size)
 test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
-### END Data processing 
+### ### ### END Data processing 
 
+### ### ### Functions to read data
 def readTextExamples(folder,cl,n) :
     """ Reads maximum n text files from folder and returns them as a list of
         list of text and its class label cl."""
@@ -69,8 +71,9 @@ def readPosNeg(pos_folder,neg_folder,n) :
         x.append(eg[0])
         y.append(eg[1])
     return x, np.array(y)
+### ### ### END Functions to read data
 
-###
+### ### ### train and test 
 def train_test() :
     """ Training and testing for text classification using BERT. """
     maxlen=512 # 512 maximum number of tokens
@@ -116,8 +119,9 @@ def train_test() :
     print("Accuracy on test data:",score[1])
 
     return model, [tokenized_train["input_ids"],tokenized_train["attention_mask"]], test_y
+### ### ###
+
 
 # Run the code
 train_test()
-
 #End
