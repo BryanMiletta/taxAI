@@ -2,8 +2,6 @@
 #TaxAI
 #level: Sandbox
 #summary:this code is testing setting up a Q/A BERT model that allows user input. 
-#it accesses local folders that already have text files and uses them for training. Specifically this uses pos neg movie reviews. It trains, tests, and evaluates
-
 
 ### ### ### Import Libraries
 import tensorflow as tf
@@ -38,8 +36,8 @@ def answer_question(context, question):
 
 # Load the SQuAD dataset
 processor = SquadV2Processor()
-train_examples = processor.get_train_examples('train-v2.0.json')
-dev_examples = processor.get_dev_examples('dev-v2.0.json')
+train_examples = processor.get_train_examples("db")
+dev_examples = processor.get_dev_examples("db")
 
 # Convert examples to features
 train_features = squad_convert_examples_to_features(
