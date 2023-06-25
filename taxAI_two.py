@@ -13,6 +13,13 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Dense
 from transformers import AutoTokenizer, TFAutoModel
 
+### ### ### Fine-tuning variables
+model = "distilbert-base-uncased"
+maxlen=512 # 512 maximum number of tokens
+maxTrEg=1000 # maximum number of pos & neg training examples
+maxTeEg=1000 # maximum number of pos & neg test examples
+epochs=6 # number of epochs
+
 def readTextExamples(folder,cl,n) :
     """ Reads maximum n text files from folder and returns them as a list of
         list of text and its class label cl."""
@@ -48,24 +55,24 @@ def readPosNeg(pos_folder,neg_folder,n) :
 ###
 def train_test() :
     """ Training and testing for text classification using BERT. """
-    maxlen=512 # 512 maximum number of tokens
-    maxTrEg=1000 # maximum number of pos & neg training examples
-    maxTeEg=1000 # maximum number of pos & neg test examples
-    epochs=6 # number of epochs
+    #maxlen=512 # 512 maximum number of tokens
+    #maxTrEg=1000 # maximum number of pos & neg training examples
+    #maxTeEg=1000 # maximum number of pos & neg test examples
+    #epochs=6 # number of epochs
 
     # read the data
     train_x, train_y = readPosNeg("aclImdb/train/pos","aclImdb/train/neg",maxTrEg)
     test_x, test_y = readPosNeg("aclImdb/test/pos","aclImdb/test/neg",maxTeEg)
 
     # tokenize train and test set
-    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+    tokenizer = AutoTokenizer.from_pretrained(model)
     tokenized_train = tokenizer(train_x, max_length=maxlen, truncation=True,
                                 padding=True, return_tensors="tf")
     tokenized_test = tokenizer(test_x, max_length=maxlen, truncation=True,
                                 padding=True, return_tensors="tf")
 
     # build the model
-    bert_model = TFAutoModel.from_pretrained("distilbert-base-uncased")
+    bert_model = TFAutoModel.from_pretrained(model)
     bert_model.trainable = False
     
     token_ids = Input(shape=(maxlen,), dtype=tf.int32,
