@@ -9,11 +9,12 @@ from PyPDF2 import PdfReader
 question = input("\nPlease enter your question: \n")
 
 ### ### ### creates a dataset that pulls text from website
-#p = create_dataset.Create_DS()
-#url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
-#p.loadArticle(url)
+p = create_dataset.Create_DS()
+url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
+p.loadArticle(url)
 ### ### ###
 
+'''
 ### ### ### creates a dataset that pulls text from PDF
 p = create_dataset.Create_DS()
 # Step 1: Extract text from the PDF file
@@ -35,6 +36,7 @@ pdf_file_path = 'db/f1040.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
+'''
 
 # creates the dataset that pulls data from hardcoded text
 #p = create_dataset.Create_DS()
