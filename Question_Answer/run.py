@@ -7,9 +7,9 @@ import nltk
 question = input("\nPlease enter your question: \n")
 
 ### ### ### creates a dataset that pulls text from website
-p = create_dataset.Create_DS()
-url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
-p.loadArticle(url)
+#p = create_dataset.Create_DS()
+#url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
+#p.loadArticle(url)
 ### ### ###
 
 ### ### ### creates a dataset that pulls text from PDF
@@ -19,8 +19,8 @@ p.loadArticle(url)
 ### ### ###
 
 # creates the dataset that pulls data from hardcoded text
-#p = create_dataset.Create_DS()
-#p.loadTxt('State rules for determining taxable income often differ from federal rules. Federal marginal tax rates vary from 10% to 37% of taxable income.[3] State and local tax rates vary widely by jurisdiction, from 0% to 13.30% of income,[4] and many are graduated. State taxes are generally treated as a deductible expense for federal tax computation, although the 2017 tax law imposed a $10,000 limit on the state and local tax ("SALT") deduction, which raised the effective tax rate on medium and high earners in high tax states. Prior to the SALT deduction limit, the average deduction exceeded $10,000 in most of the Midwest, and exceeded $11,000 in most of the Northeastern United States, as well as California and Oregon.[5] The states impacted the most by the limit were the tri-state area (NY, NJ, and CT) and California; the average SALT deduction in those states was greater than $17,000 in 2014.[5]')
+p = create_dataset.Create_DS()
+p.loadTxt('The United States of America has separate federal, state, and local governments with taxes imposed at each of these levels. Taxes are levied on income, payroll, property, sales, capital gains, dividends, imports, estates and gifts, as well as various fees. In 2020, taxes collected by federal, state, and local governments amounted to 25.5% of GDP, below the OECD average of 33.5% of GDP. The United States had the seventh-lowest tax revenue-to-GDP ratio among OECD countries in 2020, with a higher ratio than Mexico, Colombia, Chile, Ireland, Costa Rica, and Turkey.[1] U.S. tax and transfer policies are progressive and therefore reduce effective income inequality, as rates of tax generally increase as taxable income increases. As a group, the lowest earning workers, especially those with dependents, pay no income taxes and may actually receive a small subsidy from the federal government (from child credits and the Earned Income Tax Credit).[2] Taxes fall much more heavily on labor income than on capital income. Divergent taxes and subsidies for different forms of income and spending can also constitute a form of indirect taxation of some activities over others. Taxes are imposed on net income of individuals and corporations by the federal, most state, and some local governments. Citizens and residents are taxed on worldwide income and allowed a credit for foreign taxes. Income subject to tax is determined under tax accounting rules, not financial accounting principles, and includes almost all income from whatever source. Most business expenses reduce taxable income, though limits apply to a few expenses. Individuals are permitted to reduce taxable income by personal allowances and certain non-business expenses, including home mortgage interest, state and local taxes, charitable contributions, and medical and certain other expenses incurred above certain percentages of income.')
 ### ### ###
 
 while True:
