@@ -1,6 +1,6 @@
 from FineTune import *
 from create_Squad_DS import *
-
+### need to add my own domain specific datasets
 train_contexts, train_questions, train_answers = read_squad('squad_Sample.json')
 val_contexts, val_questions, val_answers = read_squad('Val.json')
 
