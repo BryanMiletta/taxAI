@@ -27,7 +27,7 @@ while True:
     model = QAPipe(p.ds)
     answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
     wrapper = textwrap.TextWrapper(width=80)
-    print(wrapper.fill(p.ds)+"\n")
+    #print(wrapper.fill(p.ds)+"\n") # this prints the context, not needed for the user
 
     print("Question: "+question)
     print("Answer : " + answer)
