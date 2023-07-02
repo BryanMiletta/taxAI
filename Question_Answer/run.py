@@ -3,6 +3,8 @@ import create_dataset
 from loadModel import *
 import textwrap
 import nltk
+import PyPDF2
+from PyPDF2 import PdfReader
 
 question = input("\nPlease enter your question: \n")
 
