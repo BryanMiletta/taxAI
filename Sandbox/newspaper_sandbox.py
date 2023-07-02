@@ -10,6 +10,7 @@ class Create_DS():
 
     def loadPdf(self,filename):
         print("I am working in progress")
+
     def loadTxt(self,text):
         self.ds = self.clean_text(text)
     def loadArticle(self,filename):
