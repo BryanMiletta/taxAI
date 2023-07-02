@@ -32,7 +32,8 @@ class QAPipe():
         return self.tokenizer.convert_ids_to_tokens(self.input_ids)
 
     def get_output(self,question):
-        self.input_ids = self.tokenizer.encode(question,self.context,max_length=2015,truncation=True)
+        max_length = 512
+        self.input_ids = self.tokenizer.encode(question,self.context,max_length,truncation=True)
         tokens = self.generate_text_from_token()
         SEP_index = self.input_ids.index(102) #Getting index of first SEP token
         len_question = SEP_index+1
