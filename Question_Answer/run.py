@@ -31,7 +31,7 @@ def process_text(text):
     article.parse()
     return article.title, article.text
 # Step 3: Call the functions to extract and process the PDF text
-pdf_file_path = 'db/f1040_filled.pdf'
+pdf_file_path = 'db/f1040.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
