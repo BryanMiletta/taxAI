@@ -21,7 +21,7 @@ class Create_DS():
         article.download()
         article.parse()
         article.nlp()
-        print(article.text)
+        #print(article.text)
         self.ds = self.clean_text(article.text)
 
     def clean_text(self,text):

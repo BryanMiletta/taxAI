@@ -2,12 +2,19 @@
 import create_dataset
 from loadModel import *
 import textwrap
+import nltk
 
-# creates the dataset
+### ### ### creates a dataset that pulls text from website
+#p = create_dataset.Create_DS()
+#url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
+#p.loadArticle(url)
+### ### ###
+
+# creates the dataset that pulls data from hardcoded text
 p = create_dataset.Create_DS()
-p.loadTxt("John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth Davis is Robert's wife. She teaches at UC Berkeley. Sophia Smith is Elizabeth's daughter. She studies at UC Davis")
+p.loadTxt('State rules for determining taxable income often differ from federal rules. Federal marginal tax rates vary from 10% to 37% of taxable income.[3] State and local tax rates vary widely by jurisdiction, from 0% to 13.30% of income,[4] and many are graduated. State taxes are generally treated as a deductible expense for federal tax computation, although the 2017 tax law imposed a $10,000 limit on the state and local tax ("SALT") deduction, which raised the effective tax rate on medium and high earners in high tax states. Prior to the SALT deduction limit, the average deduction exceeded $10,000 in most of the Midwest, and exceeded $11,000 in most of the Northeastern United States, as well as California and Oregon.[5] The states impacted the most by the limit were the tri-state area (NY, NJ, and CT) and California; the average SALT deduction in those states was greater than $17,000 in 2014.[5]')
 model = QAPipe(p.ds)
-question = "Which college does John’s sister attend?"
+question = "What is the range of state and local tax rates?"
 
 answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
 wrapper = textwrap.TextWrapper(width=80)
