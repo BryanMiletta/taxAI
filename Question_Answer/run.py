@@ -28,7 +28,7 @@ while True:
     answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
     wrapper = textwrap.TextWrapper(width=80)
     #print(wrapper.fill(p.ds)+"\n") # this prints the context, not needed for the user
-
+    print('/n') # space
     print("Question: "+question)
     print("Answer : " + answer)
 
