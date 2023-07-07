@@ -1,18 +1,29 @@
+#Bryan Miletta - CS995 Capstone
+#TaxAI
+#level: Proto
+#summary: run file for fine-tuning 
+
+### ### ### Import necessary Libraries
 from FineTune import *
 from create_Squad_DS import *
-### need to add my own domain specific datasets
-train_contexts, train_questions, train_answers = read_squad('squad_Sample.json')
-val_contexts, val_questions, val_answers = read_squad('Val.json')
 
+### Access SQuAD fine-tuning datasets
+train_contexts, train_questions, train_answers = read_squad('squad_Sample.json') #TODO
+val_contexts, val_questions, val_answers = read_squad('Val.json') #TODO 
+
+# Add index
 add_end_idx(train_answers, train_contexts)
 add_end_idx(val_answers, val_contexts)
 
+# import tokenizer
 from transformers import BertTokenizerFast
 tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
 
+# Train encodings
 train_encodings = tokenizer(train_contexts, train_questions, truncation=True, padding=True)
 val_encodings = tokenizer(val_contexts, val_questions, truncation=True, padding=True)
 
+# add token positional encodings
 add_token_positions(train_encodings, train_answers)
 add_token_positions(val_encodings, val_answers)
 train_dataset = SquadDataset(train_encodings)
@@ -20,6 +31,7 @@ val_dataset = SquadDataset(val_encodings)
 from transformers import BertForQuestionAnswering
 model = BertForQuestionAnswering.from_pretrained("bert-base-uncased")
 
+# Optimizer
 from torch.utils.data import DataLoader
 from transformers import AdamW,TrainingArguments, Trainer,default_data_collator
 args = TrainingArguments(
@@ -41,11 +53,12 @@ trainer = Trainer(
 )
 trainer.train()
 
-
+### Train
 model.train()
 
 train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 
+# optimize
 optim = AdamW(model.parameters(), lr=5e-5)
 
 for epoch in range(3):
@@ -60,4 +73,5 @@ for epoch in range(3):
         loss.backward()
         optim.step()
 
+# evaluate results
 model.eval()

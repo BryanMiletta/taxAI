@@ -1,6 +1,13 @@
+#Bryan Miletta - CS995 Capstone
+#TaxAI
+#level: Proto
+#summary: Fine-tuning
+
+### ### ### Import necessary Libraries
 import json
 from pathlib import Path
 
+### Accessor method for SQuAD json file
 def read_squad(path):
     path = Path(path)
     with open(path, 'rb') as f:
@@ -20,8 +27,9 @@ def read_squad(path):
                     answers.append(answer)
 
     return contexts, questions, answers
+###
 
-
+### Adds end index for answers and context
 def add_end_idx(answers, contexts):
     for answer, context in zip(answers, contexts):
         gold_text = answer['text']
@@ -37,6 +45,9 @@ def add_end_idx(answers, contexts):
         elif context[start_idx-2:end_idx-2] == gold_text:
             answer['answer_start'] = start_idx - 2
             answer['answer_end'] = end_idx - 2     # When the gold label is off by two characters
+###
+
+### Adds token positions for answers
 def add_token_positions(encodings, answers):
     start_positions = []
     end_positions = []
@@ -51,3 +62,4 @@ def add_token_positions(encodings, answers):
             end_positions[-1] = tokenizer.model_max_length
 
     encodings.update({'start_positions': start_positions, 'end_positions': end_positions})
+###
