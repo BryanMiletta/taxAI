@@ -4,11 +4,12 @@
 #summary: Generates the SQuAD json traing file
 
 ### ### ### Import necessary Libraries
-import squad_utils
-from squad_utils import create_squad
 import create_dataset
 
-### ### ### creates a dataset that pulls text from website
+### ### ### creates a dataset using text from:
+# https://www.irs.gov/taxtopics 
+# https://www.irs.gov/faqs 
+
 p = create_dataset.Create_DS()
 url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
 input_text = p.loadArticle(url)
