@@ -52,8 +52,8 @@ with open(input_file, 'r') as file:
         context = columns[0]
         question = columns[1]
         answers = columns[3]
-        answer_start = int(columns[4])
-        answer_end = int(columns[5])
+        answer_start = columns[4]
+        answer_end = columns[5]
 
         # Tokenize the data and calculate token IDs
         tokenized_data = tokenize_data(context, question, answers, answer_start, answer_end)
