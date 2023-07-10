@@ -12,8 +12,8 @@
 ### ### ### Import necessary Libraries
 import csv
 
-input_file = 'fine-tuning dataset - Sheet1.csv'
-output_file = 'updated_csv.csv'
+input_file = 'db/fine-tuning dataset - Sheet1.csv'
+output_file = 'db/updated_csv.csv'
 
 ### ### ### creates a dataset using text from:
 # https://www.irs.gov/faqs 
