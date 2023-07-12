@@ -25,7 +25,7 @@ from transformers import BertTokenizer
 tokenizer = BertTokenizer.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
 
 # Function to tokenize the text and calculate token IDs for answer_start and answer_end
-def tokenize_data(context, question, answers, answer_start, answer_end):
+def tokenize_data(context, question, answers):
     # Tokenize the context, question, and answer
     tokenized_input = tokenizer(context, question, truncation=True, padding=True)
 
@@ -47,20 +47,20 @@ def tokenize_csv(input_file, output_file):
         writer = csv.writer(csv_output)
     
         header = next(reader)  # Read the header row
-        header.extend(['tokenized_context', 'tokenized_question', 'tokenized_answers'])
-        writer.writerow(header)
+        writer.writerow(header) # write the header row to the new csv
 
         for row in reader:
             context = row[0]
             question = row[1]
             answers = row[3]
-
-            tokenized_context = ' '.join(tokenizer(context,truncation=True, padding=True))
-            tokenized_question = ' '.join(tokenizer(question,truncation=True, padding=True))
-            tokenized_answers = ' '.join(tokenizer(answers,truncation=True, padding=True))
-
-            row.extend([tokenized_context, tokenized_question, tokenized_answers])
-            writer.writerow(row)
+            # Tokenize the context, question, and answers
+            tokenized_context = tokenizer.tokenize(context)
+            tokenized_question = tokenizer.tokenize(question)
+            tokenized_answers = tokenizer.tokenize(answers)
+            # Write the tokenized data to the new CSV
+            tokenized_row = [' '.join(tokenized_context), ' '.join(tokenized_question), row[2], ' '.join(tokenized_answers)]
+            writer.writerow(tokenized_row)
+### END of tokenize_csv
 
 tokenize_csv(input_file, output_file)
 
