@@ -6,12 +6,12 @@
 # https://www.irs.gov/faqs 
 # https://en.wikipedia.org/wiki/Taxation_in_the_United_States 
 ### csv file format
-# column 1: context
-# column 2: question
-# column 3: question_id
-# column 4: Answers
-# column 5: answer_start
-# column 6: answer_end
+# column 0: context
+# column 1: question
+# column 2: question_id
+# column 3: Answers
+# column 4: answer_start
+# column 5: answer_end
 
 ### ### ### Import necessary Libraries
 import csv
@@ -24,7 +24,7 @@ input_file = 'db/fine-tuning dataset - Sheet1.csv'
 output_file = 'db/updated_csv.csv'
 
 ### BERT model for fine-tuning
-model_name='bert-large-uncased-whole-word-masking-finetuned-squad'
+model_name='bert-large-cased-whole-word-masking-finetuned-squad'
 from transformers import BertTokenizer
 # Load the tokenizer
 tokenizer = BertTokenizer.from_pretrained(model_name)
