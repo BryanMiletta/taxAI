@@ -11,6 +11,11 @@
 
 ### ### ### Import necessary Libraries
 import csv
+import transformers
+from transformers import BertTokenizer, BertForQuestionAnswering
+import torch
+
+model_name='bert-large-uncased-whole-word-masking-finetuned-squad'
 
 input_file = 'db/fine-tuning dataset - Sheet1.csv'
 output_file = 'db/updated_csv.csv'
@@ -22,47 +27,37 @@ output_file = 'db/updated_csv.csv'
 from transformers import BertTokenizer
 
 # Load the tokenizer
-tokenizer = BertTokenizer.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
+tokenizer = BertTokenizer.from_pretrained(model_name)
 
 # Function to tokenize the text and calculate token IDs for answer_start and answer_end
 def tokenize_data(context, question, answers):
+    maxlen=512 # 512 maximum number of tokens
+    maxTrEg=1000 # maximum number of pos & neg training examples
+    maxTeEg=1000 # maximum number of pos & neg test examples
+    epochs=3 # number of epochs
     # Tokenize the context, question, and answer
-    tokenized_input = tokenizer(context, question, truncation=True, padding=True)
+    tokenized_context = tokenizer.encode_plus(context, add_special_tokens=True, truncation=True, max_length=maxlen, padding='max_length')
+    input_ids_context = tokenized_context['input_ids']
+    tokenized_question = tokenizer.encode_plus(question, add_special_tokens=True, truncation=True, max_length=maxlen, padding='max_length')
+    input_ids_question = tokenized_question['input_ids']
+    tokenized_answers = tokenizer.encode_plus(answers, add_special_tokens=True, truncation=True, max_length=maxlen, padding='max_length')
+    input_ids_answers = tokenized_answers['input_ids']
 
     # Find the token IDs for answer_start and answer_end positions
-    answer_start_token = tokenized_input.char_to_token(answer_start)
-    answer_end_token = tokenized_input.char_to_token(answer_end)
+    answer_start_token = tokenized_answers[0]
+    answer_end_token = tokenized_answers[-1]
 
     # Update the tokenized_input dictionary with token IDs
     tokenized_input['answer_start_token'] = answer_start_token
     tokenized_input['answer_end_token'] = answer_end_token
 
-    return tokenized_input
+    return tokenized_context, tokenized_question, tokenized_answers
 
-def tokenize_csv(input_file, output_file):
-    # Open the CSV file and process each row
-    with open(input_file, 'r', newline='') as csv_input, \
-            open(output_file, 'w', newline='') as csv_output:
-        reader = csv.reader(csv_input)
-        writer = csv.writer(csv_output)
-    
-        header = next(reader)  # Read the header row
-        writer.writerow(header) # write the header row to the new csv
+context = "testing this."
+question="why is this so hard?"
+answers="because it is."
+print(tokenize_data(context,question,answers))
 
-        for row in reader:
-            context = row[0]
-            question = row[1]
-            answers = row[3]
-            # Tokenize the context, question, and answers
-            tokenized_context = tokenizer.tokenize(context)
-            tokenized_question = tokenizer.tokenize(question)
-            tokenized_answers = tokenizer.tokenize(answers)
-            # Write the tokenized data to the new CSV
-            tokenized_row = [' '.join(tokenized_context), ' '.join(tokenized_question), row[2], ' '.join(tokenized_answers)]
-            writer.writerow(tokenized_row)
-### END of tokenize_csv
-
-tokenize_csv(input_file, output_file)
 
 
 
