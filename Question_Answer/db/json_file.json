@@ -27,7 +27,7 @@
                                     "text": "Oral notification: Tell us in person or by telephone. We'll need you to verify your identity and the address we have on file for you. Please have ready your: full name, old and new addresses, Social Security number, ITIN or EIN. We may request additional information to verify your identity.",
                                     "answer_start": 26925
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -42,7 +42,7 @@
                                     "text": "Yes, but an actual copy of your Form W-2 is only available if you submitted it with a paper tax return:",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -57,7 +57,7 @@
                                     "text": "Taxes are imposed on income, payroll, property, sales, capital gains, dividends, imports, estates and gifts, as well as various fees.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What was the tax revenue-to-GDP ratio for the United States in 2020?",
@@ -67,7 +67,7 @@
                                     "text": "In 2020, taxes collected by federal, state, and local governments amounted to 25.5% of GDP.",
                                     "answer_start": 1130
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are U.S. tax and transfer policies progressive or regressive?",
@@ -77,7 +77,7 @@
                                     "text": "U.S. tax and transfer policies are progressive, as rates of tax generally increase as taxable income increases.",
                                     "answer_start": 158
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do the lowest earning workers pay income taxes in the United States?",
@@ -87,7 +87,7 @@
                                     "text": "The lowest earning workers, especially those with dependents, pay no income taxes and may receive a small subsidy from the federal government.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How do taxes on labor income compare to taxes on capital income in the United States?",
@@ -97,7 +97,7 @@
                                     "text": "Taxes fall much more heavily on labor income than on capital income.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -112,7 +112,7 @@
                                     "text": "The U.S. has federal, state, local, and special-purpose governmental jurisdictions that impose taxes.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do different levels of government in the U.S. impose taxes on the same income, property, or activity?",
@@ -122,7 +122,7 @@
                                     "text": "Yes, different levels of government may impose taxes on the same income, property, or activity, often without offsetting one tax against another.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Where are income taxes primarily imposed in the U.S.?",
@@ -132,7 +132,7 @@
                                     "text": "Income taxes are primarily imposed at the federal and most state levels in the U.S.",
                                     "answer_start": 3561
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which level of government typically imposes taxes on property?",
@@ -142,7 +142,7 @@
                                     "text": "Taxes on property are typically imposed only at the local level in the U.S.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Who imposes sales taxes in the U.S.?",
@@ -152,7 +152,7 @@
                                     "text": "Sales taxes are imposed by most states and many local governments in the U.S.",
                                     "answer_start": 15689
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which level of government imposes customs duties or tariffs in the U.S.?",
@@ -162,7 +162,7 @@
                                     "text": "Customs duties or tariffs are only imposed by the federal government in the U.S.",
                                     "answer_start": 17050
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What other types of fees are imposed in addition to taxes in the U.S.?",
@@ -172,7 +172,7 @@
                                     "text": "In addition to taxes, a wide variety of user fees or license fees are also imposed in the U.S.",
                                     "answer_start": 1130
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -187,7 +187,7 @@
                                     "text": "Taxes may be imposed on individuals (natural persons), business entities, estates, trusts, or other forms of organization.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are some factors based on which taxes can be imposed?",
@@ -197,7 +197,7 @@
                                     "text": "Taxes can be imposed based on property, income, transactions, transfers, importations of goods, business activities, or a variety of factors.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which type of taxpayer is property tax generally imposed on?",
@@ -207,7 +207,7 @@
                                     "text": "Property taxes tend to be imposed on property owners.",
                                     "answer_start": 13563
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are income taxes imposed on the members of organizations for the organization's activities?",
@@ -217,7 +217,7 @@
                                     "text": "Yes, certain taxes, particularly income taxes, may be imposed on the members of organizations for the organization's activities.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are taxes imposed by one level of government on another level of government or its instrumentalities?",
@@ -227,7 +227,7 @@
                                     "text": "With a few exceptions, one level of government does not impose tax on another level of government or its instrumentalities.",
                                     "answer_start": 1556
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -242,7 +242,7 @@
                                     "text": "Income taxes are imposed at the federal, most state, and some local levels within the United States.",
                                     "answer_start": 3561
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What was the first income tax implemented in the United States and when?",
@@ -252,7 +252,7 @@
                                     "text": "The first income tax in the United States was implemented with the Revenue Act of 1861 by Abraham Lincoln during the Civil War.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What was the impact of the Pollock v. Farmers' Loan & Trust Co. case on the federal income tax?",
@@ -262,7 +262,7 @@
                                     "text": "In 1895, the Supreme Court ruled the federal income tax on certain types of income as unconstitutional. However, it was later overruled by the ratification of the Sixteenth Amendment to the United States Constitution in 1913.",
                                     "answer_start": 1130
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is taxable income based on under the U.S. income tax system?",
@@ -272,7 +272,7 @@
                                     "text": "Taxable income is based on gross income less exemptions, deductions, and personal exemptions.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are individuals, corporations, estates, and trusts subject to income tax in the U.S.?",
@@ -282,7 +282,7 @@
                                     "text": "Yes, individuals, corporations, estates, and trusts are subject to income tax in the U.S.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are partnerships taxed in the U.S.?",
@@ -292,7 +292,7 @@
                                     "text": "Partnerships themselves are not taxed; rather, their partners are subject to income tax on their shares of income and deductions.",
                                     "answer_start": 17330
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are tax returns subject to review and adjustment by taxing authorities?",
@@ -302,7 +302,7 @@
                                     "text": "Yes, tax returns are subject to review and adjustment by taxing authorities, although not all returns are reviewed.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -317,7 +317,7 @@
                                     "text": "When a couple's income reaches the next bracket, for every $100 they earn, $25 is taxed until they reach the next bracket.",
                                     "answer_start": 1332
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -332,7 +332,7 @@
                                     "text": "Businesses may deduct most types of expenses incurred in the business, including the cost of goods sold and various other expenses.",
                                     "answer_start": 3518
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -347,7 +347,7 @@
                                     "text": "Yes, corporations must pay tax on their taxable income independently of their shareholders, and shareholders are also subject to tax on dividends received from corporations.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are partnerships taxed in contrast to corporations?",
@@ -357,7 +357,7 @@
                                     "text": "Partnerships are not subject to income tax themselves, but their partners calculate their taxes by including their shares of partnership items.",
                                     "answer_start": 17330
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Can S corporations be treated similarly to partnerships for tax purposes?",
@@ -367,7 +367,7 @@
                                     "text": "Yes, S corporations, which are corporations owned entirely by U.S. citizens or residents, may elect to be treated similarly to partnerships for tax purposes.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are charitable organizations subject to tax on their business income?",
@@ -377,7 +377,7 @@
                                     "text": "Yes, charitable organizations are subject to tax on their business income.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are tax credits and who can benefit from them?",
@@ -387,7 +387,7 @@
                                     "text": "Tax credits are available at the federal and state levels and can reduce income tax. Some credits are available to individuals, such as the child tax credit and the Earned Income Tax Credit, while others are available to businesses, including special industry incentives.",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are taxes paid or withheld in the United States?",
@@ -397,7 +397,7 @@
                                     "text": "The United States federal and state income tax systems are self-assessment systems, where taxpayers must declare and pay tax without assessment by the taxing authority. Employers withhold income tax, Social Security tax, and Medicare tax from wages, and individuals may also make estimated tax payments quarterly.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -412,7 +412,7 @@
                                     "text": "Forty-three states and many localities impose an income tax on individuals in the U.S.",
                                     "answer_start": 15487
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How many states impose a tax on the income of corporations?",
@@ -422,7 +422,7 @@
                                     "text": "Forty-seven states and many localities impose a tax on the income of corporations.",
                                     "answer_start": 15487
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are state income taxes imposed in addition to federal income tax?",
@@ -432,7 +432,7 @@
                                     "text": "Yes, state income taxes are imposed in addition to federal income tax.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are state income taxes deductible in computing federal income tax?",
@@ -442,7 +442,7 @@
                                     "text": "State income tax is allowed as a deduction in computing federal income tax, but the deduction is capped at $10,000 per household since the passage of the 2017 tax law.",
                                     "answer_start": 1426
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do most states conform to federal concepts and definitions when determining taxable income?",
@@ -452,7 +452,7 @@
                                     "text": "Yes, most states conform to many federal concepts and definitions when determining taxable income, including defining income and business deductions.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do states impose tax on income exempt at the federal level?",
@@ -462,7 +462,7 @@
                                     "text": "Yes, most states impose tax on certain types of income that are exempt at the federal level.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do non-residents in the U.S. pay federal income tax only on income from a U.S. business?",
@@ -472,7 +472,7 @@
                                     "text": "Yes, foreign individuals and corporations not resident in the United States are subject to federal income tax only on income from a U.S. business and certain types of income from U.S. sources.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -487,7 +487,7 @@
                                     "text": "Key areas of difference include depreciation and amortization, timing of recognition of income or deductions, assumptions for cost of goods sold, and certain items, such as meals and entertainment, where the tax deduction is limited.",
                                     "answer_start": 7443
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How do individuals and entities assess and report their income taxes in the United States?",
@@ -497,7 +497,7 @@
                                     "text": "Income taxes in the United States are self-assessed by taxpayers by filing required tax returns. Taxpayers compute all income, deductions, and credits themselves and determine the amount of tax due after applying prepayments and taxes withheld.",
                                     "answer_start": 3561
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are some of the commonly used tax forms for filing tax returns in the United States?",
@@ -507,7 +507,7 @@
                                     "text": "Individuals use IRS Form 1040 series, corporations use Form 1120 series, partnerships use Form 1065, and tax-exempt organizations use Form 990 series. These forms disclose a complete computation of taxable income under tax principles.",
                                     "answer_start": 26381
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are there variations between federal and state tax forms?",
@@ -517,7 +517,7 @@
                                     "text": "Yes, the state forms for filing tax returns in the United States vary widely and often do not correspond to the federal forms.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Is electronic filing of tax returns encouraged in the United States?",
@@ -527,7 +527,7 @@
                                     "text": "Yes, electronic filing of federal and many state tax returns is widely encouraged and in some cases required. Many taxpayers and paid return preparers use computer software to prepare and electronically file returns.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -542,7 +542,7 @@
                                     "text": "Individuals and corporations pay U.S. federal income tax on the net total of all their capital gains.\n\n",
                                     "answer_start": 26381
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What determines the tax rate for capital gains?",
@@ -552,7 +552,7 @@
                                     "text": "The tax rate for capital gains depends on both the investor's tax bracket and the amount of time the investment was held.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are short-term capital gains taxed?",
@@ -562,7 +562,7 @@
                                     "text": "Short-term capital gains, which are investments held for a year or less before being sold, are taxed at the investor's ordinary income tax rate.",
                                     "answer_start": 6373
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are long-term capital gains taxed?",
@@ -572,7 +572,7 @@
                                     "text": "Long-term capital gains, on dispositions of assets held for more than one year, are taxed at a lower rate compared to short-term capital gains.",
                                     "answer_start": 3261
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -587,7 +587,7 @@
                                     "text": "Payroll taxes are assessed by the federal government, many states, the District of Columbia, and numerous cities in the United States.",
                                     "answer_start": 22531
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "On whom are payroll taxes imposed?",
@@ -597,7 +597,7 @@
                                     "text": "Payroll taxes are imposed on both employers and employees, based on various compensation bases.",
                                     "answer_start": 22531
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How often are payroll taxes reported by employers?",
@@ -607,7 +607,7 @@
                                     "text": "Most jurisdictions imposing payroll taxes require reporting quarterly and annually, with electronic reporting generally required for all but small employers.",
                                     "answer_start": 2082
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are income tax withholdings required in the United States?",
@@ -617,7 +617,7 @@
                                     "text": "Yes, federal, state, and local withholding taxes are required in jurisdictions imposing an income tax. Employers withhold the tax from wages paid to employees based on their tax status provided on IRS Form W-4.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are social security and Medicare taxes imposed on both employers and employees?",
@@ -627,7 +627,7 @@
                                     "text": "Yes, federal social insurance taxes (including Social Security and Medicare taxes) are imposed equally on employers and employees in the United States.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the rates for Social Security and Medicare taxes?",
@@ -637,7 +637,7 @@
                                     "text": "The tax rate for Social Security is 6.2% of wages up to an annual wage maximum, and the tax rate for Medicare is 1.45% of total wages. For wages over $200,000, an additional Medicare tax of 0.9% is paid by the employee.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -652,7 +652,7 @@
                                     "text": "Employers are subject to unemployment taxes imposed by the federal government and all state governments in the United States.",
                                     "answer_start": 18653
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are unemployment taxes calculated?",
@@ -662,7 +662,7 @@
                                     "text": "Unemployment taxes are calculated as a percentage of taxable wages with a cap. The tax rate and cap vary by jurisdiction and by the employer's industry and experience rating.",
                                     "answer_start": 12118
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are there additional taxes imposed on employees related to unemployment?",
@@ -672,7 +672,7 @@
                                     "text": "Some states may impose additional taxes, such as unemployment, disability insurance, or similar taxes, on employees.",
                                     "answer_start": 1789
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the reporting requirements for payroll taxes?",
@@ -682,7 +682,7 @@
                                     "text": "Employers must report payroll taxes to the appropriate taxing jurisdiction in the manner specified by each jurisdiction. Quarterly reporting of aggregate income tax withholding and Social Security taxes is generally required.",
                                     "answer_start": 18653
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How and when are payroll taxes paid?",
@@ -692,7 +692,7 @@
                                     "text": "Employers are required to pay payroll taxes to the taxing jurisdiction based on varying rules, often within 1 banking day. Payment is typically made through electronic funds transfer or by depositing funds with a bank for the benefit of the taxing jurisdiction.",
                                     "answer_start": 18653
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the penalties for non-compliance with payroll tax obligations?",
@@ -702,7 +702,7 @@
                                     "text": "Failure to timely and properly pay federal payroll taxes can result in automatic penalties ranging from 2% to 10%. Similar penalties may apply at the state and local levels. Failure to file required forms, such as Forms W-2, may also lead to penalties. Additionally, a severe penalty of up to 100% of the unpaid taxes can be assessed against employers and individuals with control or custody of the funds.",
                                     "answer_start": 143
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -717,7 +717,7 @@
                                     "text": "No, there is no federal sales or use tax in the United States.",
                                     "answer_start": 1302
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which entities impose sales and use taxes in the United States?",
@@ -727,7 +727,7 @@
                                     "text": "All but five states impose sales and use taxes on retail sales, leases, rentals of goods, and some services. Additionally, many cities, counties, transit authorities, and special purpose districts impose local sales or use taxes.",
                                     "answer_start": 1398
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How is sales and use tax calculated?",
@@ -737,7 +737,7 @@
                                     "text": "Sales and use tax is calculated by multiplying the purchase price of goods or services by the appropriate tax rate. The tax rates vary widely by jurisdiction, ranging from less than 1% to over 10%.",
                                     "answer_start": 15689
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Who collects sales tax and when is it collected?",
@@ -747,7 +747,7 @@
                                     "text": "Sales tax is collected by the seller at the time of sale. The seller is responsible for collecting and remitting the tax to the state or relevant taxing jurisdiction.",
                                     "answer_start": 15689
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is use tax and who is responsible for self-assessing it?",
@@ -757,7 +757,7 @@
                                     "text": "Use tax is a tax self-assessed by a buyer who has not paid sales tax on a taxable purchase. It is typically applicable when a buyer purchases goods from out-of-state or online sellers who did not collect sales tax.",
                                     "answer_start": 11696
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are there any exemptions or reduced tax rates for certain goods and services?",
@@ -767,7 +767,7 @@
                                     "text": "Nearly all jurisdictions provide exemptions or reduced tax rates for certain categories of goods and services. Goods purchased for further manufacture or resale are typically exempt from sales tax. Additionally, many jurisdictions exempt groceries, prescription medications, and agricultural supplies from sales tax.",
                                     "answer_start": 16992
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are sales taxes administered and enforced?",
@@ -777,7 +777,7 @@
                                     "text": "Sales taxes, including those imposed by local governments, are generally administered at the state level. Retail sellers are required to register with the state, collect tax from customers, file returns, and remit the tax to the state. The procedural rules for sales tax administration can vary widely by jurisdiction.",
                                     "answer_start": 15689
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are excise taxes and what goods or services are subject to them?",
@@ -787,7 +787,7 @@
                                     "text": "Excise taxes are imposed at the federal and state levels on certain goods or services to discourage their consumption. They may be based on the sales price, per unit, or other basis. Examples of goods subject to excise taxes include alcohol, tobacco, gasoline, firearms, air transportation, and telephone services.",
                                     "answer_start": 16409
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -802,7 +802,7 @@
                                     "text": "Property taxes are most commonly applied to real estate and business property, which include ownership interests in land, buildings, and improvements. Automobile and boat registration fees are also considered a subset of property tax.",
                                     "answer_start": 13563
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How is the amount of property tax determined?",
@@ -812,7 +812,7 @@
                                     "text": "The amount of property tax is determined based on the fair market value of the property. Each year, the market value of the property is assessed, and the tax is calculated by multiplying the assessed value by an assessment ratio and the tax rate.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are property values determined for taxation purposes?",
@@ -822,7 +822,7 @@
                                     "text": "How are property values determined for taxation purposes?\nAnswer: Property values are determined by tax assessors who assess the values of properties within their jurisdiction. The determination of values can be based on various methods, including comparable sales, depreciated cost, and an income approach. Property owners also have the right to declare or contest the assessed value.",
                                     "answer_start": 1731
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What happens if a property owner fails to pay property taxes?",
@@ -832,7 +832,7 @@
                                     "text": "If a property owner fails to pay property taxes, the taxing jurisdiction has various remedies for collection. This can include seizure and sale of the property. Property taxes also constitute a lien on the property, which can affect property transfers.",
                                     "answer_start": 1409
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are property taxes assessed and collected?",
@@ -842,7 +842,7 @@
                                     "text": "The assessment process varies by state and jurisdiction. Tax assessors determine the values of properties and calculate the tax amount based on those values. Once the values are settled, property tax bills or notices are sent to property owners. Payment times and terms can vary widely.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do property values need to be coordinated among jurisdictions?",
@@ -852,7 +852,7 @@
                                     "text": "Yes, property values often need to be coordinated among different taxing jurisdictions. This coordination is usually performed by equalization to ensure consistency in property assessments.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do mortgage companies play a role in property tax collection?",
@@ -862,7 +862,7 @@
                                     "text": "Yes, mortgage companies often collect property taxes from property owners and remit them on behalf of the owner. This helps ensure that property taxes are paid in a timely manner.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -877,7 +877,7 @@
                                     "text": "The importer of record is responsible for paying customs duties on imported goods in the United States.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the consequences of failing to comply with customs rules in the United States?",
@@ -887,7 +887,7 @@
                                     "text": "Failure to properly comply with customs rules can result in the seizure of goods and criminal penalties against the parties involved.",
                                     "answer_start": 143
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are customs duties calculated for imported goods?",
@@ -897,7 +897,7 @@
                                     "text": "Customs duties are calculated based on the imported value of the goods. Rates of tax vary by the country of origin and can be expressed as a percentage of value or dollars and cents per unit.",
                                     "answer_start": 17050
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is the Harmonized Tariff Schedule and how is it used in the United States?",
@@ -907,7 +907,7 @@
                                     "text": "The Harmonized Tariff Schedule, published by CBP and the U.S. International Trade Commission, provides rates of duty for different classes of goods. It is used to classify goods and determine the applicable duty rate.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Can imported goods be stored in the United States without paying duties?",
@@ -917,7 +917,7 @@
                                     "text": "Can imported goods be stored in the United States without paying duties?\nAnswer: Yes, imported goods can be stored in a bonded warehouse or a Foreign-Trade Zone in the United States for up to five years without payment of duties.",
                                     "answer_start": 2825
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are imported goods declared for entry into the United States?",
@@ -927,7 +927,7 @@
                                     "text": "Imported goods must be declared for entry into the United States within 15 days of arrival or prior to leaving a bonded warehouse or foreign trade zone. Importers of goods are responsible for making the declaration and paying the customs duties.",
                                     "answer_start": 146
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the penalties for non-compliance with CBP rules and failure to pay duty?",
@@ -937,7 +937,7 @@
                                     "text": "Certain civil penalties apply for failures to follow CBP rules and pay duty. Goods of persons subject to such penalties may be seized and sold by CBP. Criminal penalties may also apply for certain offenses, with potential jail terms and fines.",
                                     "answer_start": 16482
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -952,7 +952,7 @@
                                     "text": "Estate taxes are excise taxes levied on the right to pass property at death. They are imposed on the estate, not the beneficiary. The responsibility for paying estate taxes lies with the estate itself.",
                                     "answer_start": 9765
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are gift taxes and who is responsible for paying them in the United States?",
@@ -962,7 +962,7 @@
                                     "text": "Gift taxes are levied on the giver (donor) of property when it is transferred for less than adequate consideration. The responsibility for paying gift taxes lies with the donor, not the recipient.",
                                     "answer_start": 22889
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are there any additional taxes imposed on transfers to grandchildren in the United States?",
@@ -972,7 +972,7 @@
                                     "text": "Yes, there is an additional generation-skipping transfer (GST) tax imposed by the federal and some state governments on transfers to grandchildren or their descendants.\n\nQuestion: How are the federal gift tax and estate tax calculated?",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are the federal gift tax and estate tax calculated?",
@@ -982,7 +982,7 @@
                                     "text": "The federal gift tax is computed based on cumulative taxable gifts, and the federal estate tax is computed on the sum of taxable estate and taxable gifts. Both taxes are calculated using a graduated tax rate, which can range up to 35% in 2011.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is the unified credit in relation to estate and gift taxes?",
@@ -992,7 +992,7 @@
                                     "text": "The unified credit is a major credit that reduces the amount of estate and gift taxes owed. It is equivalent to an exclusion amount, which was $5 million in 2011.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What types of property are subject to gift and estate taxes in the United States?",
@@ -1002,7 +1002,7 @@
                                     "text": "Generally, all types of property are subject to gift and estate taxes in the United States. However, there are certain exemptions and exclusions, and the taxable values are determined based on fair market value.",
                                     "answer_start": 15559
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Who is required to file gift and estate tax returns in the United States?",
@@ -1012,7 +1012,7 @@
                                     "text": "Donors of gifts in excess of the annual exclusion and executors of estates with a gross value in excess of the unified credit must file gift tax returns and estate tax returns, respectively. Each state also has its own forms and filing requirements.",
                                     "answer_start": 1790
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1027,7 +1027,7 @@
                                     "text": "Licensing or occupational taxes are taxes or fees imposed by many jurisdictions within the United States on the privilege of carrying on a specific business or maintaining a particular professional certification.",
                                     "answer_start": 5255
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are licensing or occupational taxes calculated?",
@@ -1037,7 +1037,7 @@
                                     "text": "The calculation of licensing or occupational taxes can vary. It can be a fixed dollar amount per year for the licensee, based on the number of practitioners in the firm, a percentage of revenue, or other bases depending on the jurisdiction and the type of business or profession.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which professions or businesses are commonly subject to licensing or occupational taxes?",
@@ -1047,7 +1047,7 @@
                                     "text": "Various professions and businesses are commonly subject to licensing or occupational taxes. Examples include accountants, attorneys, barbers, casinos, dentists, doctors, auto mechanics, plumbers, and stockbrokers.",
                                     "answer_start": 9311
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are there additional requirements besides taxes for obtaining a professional license?",
@@ -1057,7 +1057,7 @@
                                     "text": "Yes, besides taxes, additional requirements may be imposed for obtaining a professional license. These requirements can include education, training, examinations, and compliance with specific regulations or codes of conduct.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are vehicle license fees and driver's license fees common in the United States?",
@@ -1067,7 +1067,7 @@
                                     "text": "Are vehicle license fees and driver's license fees common in the United States?\nAnswer: Yes, all 50 states impose a vehicle license fee based on the type and size of the vehicle, and all states and the District of Columbia impose a fee for a driver's license. These fees are typically renewed periodically.",
                                     "answer_start": 2372
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are user fees in the context of government services?",
@@ -1077,7 +1077,7 @@
                                     "text": "User fees are fees imposed by governments for the use of certain facilities or services. These fees are generally paid at the time of use and can apply to various services or resources such as national or state parks, highway tolls, parking on public streets, public transit, and requesting certain rulings from the IRS.",
                                     "answer_start": 11696
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Are multi-use permits available for certain facilities or services?",
@@ -1087,7 +1087,7 @@
                                     "text": "Yes, multi-use permits may be available for certain facilities or services. These permits allow individuals to pay a single fee for multiple uses or access over a specific period of time, offering convenience and potential cost savings.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1102,7 +1102,7 @@
                                     "text": "Taxes in the United States are administered by hundreds of tax authorities. At the federal level, taxes are administered by the Internal Revenue Service (IRS) for most domestic federal taxes, the Alcohol and Tobacco Tax and Trade Bureau (TTB) for alcohol, tobacco, and firearms taxes, and U.S. Customs and Border Protection (CBP) for import taxes (customs duties).",
                                     "answer_start": 13429
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are the functions of the Internal Revenue Service (IRS)?",
@@ -1112,7 +1112,7 @@
                                     "text": "The Internal Revenue Service (IRS) administers all U.S. federal tax laws related to domestic activities, excluding those taxes administered by the TTB. The IRS processes tax returns, provides taxpayer assistance, collects taxes, enforces tax laws through examinations and penalties, offers appeals mechanisms, and publishes tax-related information and guidance.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is an IRS audit?",
@@ -1122,7 +1122,7 @@
                                     "text": "An IRS audit is an examination and adjustment of a tax return filed with the IRS. Only a small percentage of returns are audited each year. During an audit, the IRS may request additional information from the taxpayer and propose adjustments to the return. Taxpayers have certain rights during an audit and can be represented by an attorney, ",
                                     "answer_start": 1760
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What types of guidance does the IRS provide to taxpayers?",
@@ -1132,7 +1132,7 @@
                                     "text": "The IRS provides formal and informal guidance to taxpayers. This includes revenue rulings, revenue procedures, and pronouncements published in the Internal Revenue Bulletin, private letter rulings, IRS publications, forms and instructions, a comprehensive ",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is the Alcohol and Tobacco Tax and Trade Bureau (TTB)?",
@@ -1142,7 +1142,7 @@
                                     "text": "The Alcohol and Tobacco Tax and Trade Bureau (TTB) is a division of the Department of the Treasury. It enforces federal excise tax laws related to alcohol, tobacco, and firearms. The TTB processes tax returns, issues permits, conducts tax audits, investigates trade violations, enforces tobacco regulations, and monitors advertising and labeling.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is the role of U.S. Customs and Border Protection (CBP)?",
@@ -1152,7 +1152,7 @@
                                     "text": "U.S. Customs and Border Protection (CBP), under the Department of Homeland Security, collects customs duties and regulates international trade. CBP has the authority to seize and dispose of cargo in cases of customs rule violations. It operates at over 300 official ports of entry and plays a crucial role in customs enforcement.",
                                     "answer_start": 158
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are state and local taxes administered in the United States?",
@@ -1162,7 +1162,7 @@
                                     "text": "Each state in the United States has its own tax administration, such as the Department of Revenue or Department of Taxation, subject to state law and regulations. Localities also administer their own taxes, with multiple taxing jurisdictions in many cases. State tax returns are filed separately with state tax administrations, and local taxes are typically managed by local tax assessors/collectors.",
                                     "answer_start": 2994
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1177,7 +1177,7 @@
                                     "text": "The United States Constitution grants Congress the power to lay and collect taxes, duties, imposts, and excises. The 16th Amendment specifically allows Congress to tax incomes without apportionment among the states. The 10th Amendment reserves powers not delegated to the federal government to the states or the people.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How are the laws dealing with taxes in the United States structured?",
@@ -1187,7 +1187,7 @@
                                     "text": "Congress has enacted numerous tax laws, which are now codified as Title 19 (Customs Duties), Title 26 (Internal Revenue Code), and various other provisions. These laws authorize the U.S. Secretary of the Treasury to delegate powers related to the levy, assessment, and collection of taxes.",
                                     "answer_start": 2757
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Do state governments have the right to levy and collect taxes?",
@@ -1197,7 +1197,7 @@
                                     "text": "Do state governments have the right to levy and collect taxes?\nAnswer: Yes, state constitutions uniformly grant state governments the right to levy and collect taxes. However, the limitations under state constitutions can vary widely.",
                                     "answer_start": 2091
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Have there been any challenges to the legitimacy of federal income tax in the United States?",
@@ -1207,7 +1207,7 @@
                                     "text": "Yes, various individuals and groups have questioned the legitimacy of federal income tax. However, these arguments have been uniformly rejected by the Internal Revenue Service, the courts, and ruled to be frivolous.",
                                     "answer_start": 2160
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1222,7 +1222,7 @@
                                     "text": "They contend that federal tax policy tends to favor wealthy Americans and that political influence, exercised through financial contributions and lobbying, allows the wealthy to advocate for their preferred policies.",
                                     "answer_start": 1220
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How have different political ideologies approached the issue of taxes in the United States?",
@@ -1232,7 +1232,7 @@
                                     "text": "They contend that federal tax policy tends to favor wealthy Americans and that political influence, exercised through financial contributions and lobbying, allows the wealthy to advocate for their preferred policies.",
                                     "answer_start": 1220
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Why do Page, Bartels, and Seawright suggest that progressive tax reforms have been slow to materialize?",
@@ -1242,7 +1242,7 @@
                                     "text": "They argue that despite government officials favoring progressive tax reforms, the reluctance of upper-class citizens, particularly due to budget deficits, has hindered significant progress in that direction.",
                                     "answer_start": 1220
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What is the tax gap, as estimated by the Internal Revenue Service (IRS)?",
@@ -1252,7 +1252,7 @@
                                     "text": "What is the tax gap, as estimated by the Internal Revenue Service (IRS)?\nAnswer: The tax gap is the difference between the amount of tax legally owed and the amount actually collected by the government. The IRS estimated the tax gap to be $345 billion in 2001 and approximately $450 billion in 2006.",
                                     "answer_start": 1327
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1267,7 +1267,7 @@
                                     "text": "No, the United States as a whole is not generally viewed as a tax haven. However, among its 50 states, there are some that individuals and companies use to store their wealth and avoid or evade taxes.",
                                     "answer_start": 1302
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Which state in the United States is known for its popularity in managing offshore assets through trust companies?",
@@ -1277,7 +1277,7 @@
                                     "text": "South Dakota is known for its popularity in managing offshore assets through trust companies. Between 2011 and 2021, the assets managed in South Dakota by trust companies increased from $75 billion to $367 billion.",
                                     "answer_start": 1375
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What makes trusts particularly popular in South Dakota?",
@@ -1287,7 +1287,7 @@
                                     "text": "Trusts are particularly popular in South Dakota because the state allows for the creation of trusts that serve to pass property onto one's children while shielding those assets from tax. South Dakota enables trusts to exist indefinitely, unlike the English common law precedent where these trusts could only exist for 21 years.",
                                     "answer_start": 4623
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Why is Delaware considered a tax haven and a popular location for corporations?",
@@ -1297,7 +1297,7 @@
                                     "text": "Delaware is considered a tax haven and a popular location for corporations because it does not collect any local or state sales tax and does not subject companies to any income tax on their intangible assets. Holding companies can charge their subsidiaries trademark charges, reducing their income tax base, and moving their income to Delaware where it is not subject to state taxes. Delaware also offers benefits in terms of high secrecy levels, predictable judiciary rulings, and business-friendly usury laws.",
                                     "answer_start": 8056
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What are some tax advantages that Nevada offers, making it a widely used tax haven?",
@@ -1307,7 +1307,7 @@
                                     "text": "Nevada has no state income tax, personal income tax, inheritance tax, or franchise tax. It also lacks an agreement with the IRS on sharing information, providing a high level of privacy for entities that choose to incorporate there. Nevada's laws on privacy and company officers' liability contribute to its business-friendly environment.",
                                     "answer_start": 7263
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "According to a study, what economic impact could simplifying the complex U.S. tax system have?",
@@ -1317,7 +1317,7 @@
                                     "text": "According to a 2011 study, the U.S. economy could become approximately $1.6 trillion larger, or $5,200 wealthier per person, after a simplification of the complex U.S. tax system.",
                                     "answer_start": 1792
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 },
@@ -1332,7 +1332,7 @@
                                     "text": "Property taxes were imposed in the American Colonies as early as 1634.",
                                     "answer_start": 13563
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "Under the Articles of Confederation, which level of government had the power to tax?",
@@ -1342,7 +1342,7 @@
                                     "text": "Under the Articles of Confederation, the power to tax lay with the states. The United States government did not have the power to tax.",
                                     "answer_start": 2831
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What was the principal federal tax in the 1800s?",
@@ -1352,7 +1352,7 @@
                                     "text": "Tariffs were the principal federal tax through the 1800s.",
                                     "answer_start": 22515
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "When was the first federal income tax adopted?",
@@ -1362,7 +1362,7 @@
                                     "text": "The first federal income tax was adopted as part of the Revenue Act of 1861.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What amendment to the United States Constitution allowed the federal government to levy an income tax?",
@@ -1372,7 +1372,7 @@
                                     "text": "The Sixteenth Amendment to the United States Constitution, ratified in 1913, permitted the federal government to levy an income tax on both property and labor.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How were federal taxes expanded during World War I?",
@@ -1382,7 +1382,7 @@
                                     "text": "Federal taxes were expanded greatly during World War I to fund the war effort.",
                                     "answer_start": 3467
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "When did the United States adopt the British system of deduction-at-source, and why was it later replaced?",
@@ -1392,7 +1392,7 @@
                                     "text": "The United States adopted the British system of deduction-at-source in 1936 but later replaced it with the system of information-at-source due to the burden it imposed on revenue authorities to correlate large quantities of information.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "What major tax reform was enacted in 1986, and who proposed it?",
@@ -1402,7 +1402,7 @@
                                     "text": "The Tax Reform Act of 1986 was enacted by Congress with little modification and was proposed by the U.S. Treasury Department under President Reagan.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "How frequently have federal income tax rates been modified?",
@@ -1412,7 +1412,7 @@
                                     "text": "Federal income tax rates have been modified frequently, with changes occurring in 34 of the 97 years between 1913 and 2010.",
                                     "answer_start": 3467
                                 }
-                            ]
+                            ],"is_impossible": false
                         },
                         {
                             "question": "When were the Federal Estate Tax and Gift Tax introduced?",
@@ -1422,7 +1422,7 @@
                                     "text": "The Federal Estate Tax was introduced in 1916, and the Gift Tax was introduced in 1924.",
                                     "answer_start": 1109
                                 }
-                            ]
+                            ],"is_impossible": false
                         }
                     ]
                 }
