@@ -12,15 +12,15 @@
                             "id": "0",
                             "answers": [
                                 {
-                                    "text": "IRS form, Use Form 8822, Change of Address or Form 8822-B, Change of Address or Responsible Party - Business. ",
+                                    "text": "IRS form, Use Form 8822, Change of Address or Form 8822-B, Change of Address or Responsible Party - Business.",
                                     "answer_start": 146
                                 },
                                 {
-                                    "text": "Tax return: use your new address when you file. ",
+                                    "text": "Tax return: use your new address when you file.",
                                     "answer_start": 13429
                                 },
                                 {
-                                    "text": "Written statement: Send us a signed written statement with your: full name, old and new addresses, Social Security number, ITIN, or EIN. Mail your signed statement to the address where you filed your last return. ",
+                                    "text": "Written statement: Send us a signed written statement with your: full name, old and new addresses, Social Security number, ITIN, or EIN. Mail your signed statement to the address where you filed your last return.",
                                     "answer_start": 13404
                                 },
                                 {
