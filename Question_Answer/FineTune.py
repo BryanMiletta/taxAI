@@ -6,7 +6,8 @@
 ### ### ### Import necessary Libraries
 import json
 from pathlib import Path
-
+from transformers import BertTokenizerFast
+tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
 ### Accessor method for SQuAD json file
 def read_squad(path):
     path = Path(path)
@@ -35,7 +36,7 @@ def add_end_idx(answers, contexts):
         gold_text = answer['text']
         start_idx = answer['answer_start']
         end_idx = start_idx + len(gold_text)
-
+        
         # sometimes squad answers are off by a character or two – fix this
         if context[start_idx:end_idx] == gold_text:
             answer['answer_end'] = end_idx
@@ -45,6 +46,9 @@ def add_end_idx(answers, contexts):
         elif context[start_idx-2:end_idx-2] == gold_text:
             answer['answer_start'] = start_idx - 2
             answer['answer_end'] = end_idx - 2     # When the gold label is off by two characters
+        else:    
+            answer['answer_end'] = end_idx
+        
 ###
 
 ### Adds token positions for answers
