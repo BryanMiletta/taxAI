@@ -8,8 +8,8 @@ from FineTune import *
 from create_Squad_DS import *
 
 ### Access SQuAD fine-tuning datasets
-train_contexts, train_questions, train_answers = read_squad('squad_Sample.json') #TODO
-val_contexts, val_questions, val_answers = read_squad('Val.json') #TODO 
+train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
+val_contexts, val_questions, val_answers = read_squad('Val.json') #TODO I have not modified this from current
 
 # Add index
 add_end_idx(train_answers, train_contexts)
