@@ -6,9 +6,14 @@
 ### ### ### Import necessary Libraries
 from FineTune import *
 from create_Squad_DS import *
+import torch
+import torch.cuda as cuda
+
+device = torch.device('cuda' if cuda.is_available() else 'cpu')
+
 
 ### Access SQuAD fine-tuning datasets
-train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
+train_contexts, train_questions, train_answers = read_squad('squad_Sample.json') 
 val_contexts, val_questions, val_answers = read_squad('Val.json') #TODO I have not modified this from current
 
 # Add index
@@ -29,7 +34,7 @@ add_token_positions(val_encodings, val_answers)
 train_dataset = SquadDataset(train_encodings)
 val_dataset = SquadDataset(val_encodings)
 from transformers import BertForQuestionAnswering
-model = BertForQuestionAnswering.from_pretrained("bert-base-uncased")
+model = BertForQuestionAnswering.from_pretrained("bert-base-uncased").to(device)
 
 # Optimizer
 from torch.utils.data import DataLoader
@@ -54,9 +59,10 @@ trainer = Trainer(
 trainer.train()
 
 ### Train
+model.to(device)
 model.train()
 
-train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, pin_memory=True, num_workers=0)
 
 # optimize
 optim = AdamW(model.parameters(), lr=5e-5)
@@ -64,10 +70,10 @@ optim = AdamW(model.parameters(), lr=5e-5)
 for epoch in range(3):
     for batch in train_loader:
         optim.zero_grad()
-        input_ids = batch['input_ids']
-        attention_mask = batch['attention_mask']
-        start_positions = batch['start_positions']
-        end_positions = batch['end_positions']
+        input_ids = batch['input_ids'].to(device)
+        attention_mask = batch['attention_mask'].to(device)
+        start_positions = batch['start_positions'].to(device)
+        end_positions = batch['end_positions'].to(device)
         outputs = model(input_ids, attention_mask=attention_mask, start_positions=start_positions, end_positions=end_positions)
         loss = outputs[0]
         loss.backward()
