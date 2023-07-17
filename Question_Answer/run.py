@@ -1,11 +1,12 @@
 #Bryan Miletta - CS995 Capstone
 #TaxAI
 #level: Proto
-#summary: Main run file to execute the model. UI to collect question, build dataset from 1040, run the data through the pre-training model. TODO run through fine-tuning model. Output result.
+#summary: run file to execute the pre-training model. UI to collect question, build dataset from 1040, run the data through the pre-training model. TODO run through fine-tuning model. Output result.
 
 ### ### ### Import necessary Libraries
 import create_dataset
 from loadModel import *
+from run_fineTuning import *
 import textwrap
 import nltk
 import PyPDF2
@@ -13,7 +14,7 @@ from PyPDF2 import PdfReader
 
 question = input("\nPlease enter your question: \n")
 
-### ### ### creates a dataset that pulls text from PDF - #TODO Will use this to have the user upload their 1040
+### ### ### creates a dataset that pulls text from PDF - 
 p = create_dataset.Create_DS()
 # Step 1: Extract text from the PDF file
 def extract_text_from_pdf(file_path):
@@ -30,13 +31,17 @@ def process_text(text):
     article.parse()
     return article.title, article.text
 # Step 3: Call the functions to extract and process the PDF text
-pdf_file_path = 'db/f1040.pdf' #TODO This should be set to the folder where the user provided 1040 is stored
+pdf_file_path = 'db/f1040.pdf' 
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
 
+### ### ### PRE-TRAINING
+model = QAPipe(p.ds)
+
+
 while True:
-    model = QAPipe(p.ds)
+    #model = QAPipe(p.ds)
     answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
     wrapper = textwrap.TextWrapper(width=80)
     #print(wrapper.fill(p.ds)+"\n") # this prints the context, not needed for the user

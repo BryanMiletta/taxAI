@@ -5,8 +5,8 @@
 #summary: Main run file to execute the model. UI to collect question, build dataset from 1040, run the data through the pre-training model. TODO run through fine-tuning model. Output result.
 
 ### ### ### Import necessary Libraries
-import run.py
-import run_fineTuning.py
+import run
+import run_fineTuning
 
 def main(_):
     p = create_dataset.Create_DS()

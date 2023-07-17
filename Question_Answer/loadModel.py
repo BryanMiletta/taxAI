@@ -19,16 +19,16 @@ class QAPipe():
         self.text_tokens = None
         self.outputs = None
         self.segment_ids = None
-        self.tokenizer = BertTokenizer.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
-        self.model = BertForQuestionAnswering.from_pretrained("bert-large-uncased-whole-word-masking-finetuned-squad")
+        self.tokenizer = BertTokenizer.from_pretrained("bert-large-cased-whole-word-masking-finetuned-squad")
+        self.model = BertForQuestionAnswering.from_pretrained("bert-large-cased-whole-word-masking-finetuned-squad")
     
     # intialize the tokenizer
     def __init_tokenizer__(self):
-        self.tokenizer = BertTokenizer.from_pretrained("deepset/bert-large-uncased-whole-word-masking-squad2")
+        self.tokenizer = BertTokenizer.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
     
     # intialize the model
     def __init_model__(self):
-        self.model = BertForQuestionAnswering.from_pretrained("deepset/bert-large-uncased-whole-word-masking-squad2")
+        self.model = BertForQuestionAnswering.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
 
     # get IDs 
     def get_ids(self):
