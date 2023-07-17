@@ -55,14 +55,14 @@ while True:
     with torch.no_grad():
         outputs = model(**inputs).to(device)
 
-    start_scores = outputs.start_logits
-    end_scores = outputs.end_logits
+    start_scores = outputs.start_logits.to(device)
+    end_scores = outputs.end_logits.to(device)
 
-    start_index = torch.argmax(start_scores)
-    end_index = torch.argmax(end_scores)
+    start_index = torch.argmax(start_scores).to(device)
+    end_index = torch.argmax(end_scores).to(device)
 
     answer_tokens = inputs["input_ids"][0][start_index : end_index + 1]
-    answer = tokenizer.decode(answer_tokens)
+    answer = tokenizer.decode(answer_tokens).to(device)
 
     wrapper = textwrap.TextWrapper(width=80)
     print() # space
