@@ -6,6 +6,8 @@
 
 ### ### ### Import necessary Libraries
 from transformers import BertForQuestionAnswering, BertTokenizer
+import torch
+import torch.cuda as cuda
 
 model_path = "db"
 tokenizer = BertTokenizer.from_pretrained(model_path)
