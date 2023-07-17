@@ -11,6 +11,8 @@ model_path = "db"
 tokenizer = BertTokenizer.from_pretrained(model_path)
 model = BertForQuestionAnswering.from_pretrained(model_path)
 
+device = torch.device('cuda' if cuda.is_available() else 'cpu')
+
 import create_dataset
 from loadModel import *
 from run_fineTuning import *
@@ -49,7 +51,7 @@ while True:
     inputs = tokenizer(question, context, return_tensors="pt")
     
     with torch.no_grad():
-        outputs = model(**inputs)
+        outputs = model(**inputs).to(device)
 
     start_scores = outputs.start_logits
     end_scores = outputs.end_logits
