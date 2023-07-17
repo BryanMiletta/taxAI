@@ -1,34 +1,19 @@
 
-from absl import app,flags,logging
-import sh
-import create_dataset
-from loadModel import *
+#Bryan Miletta - CS995 Capstone
+#TaxAI
+#level: Proto
+#summary: Main run file to execute the model. UI to collect question, build dataset from 1040, run the data through the pre-training model. TODO run through fine-tuning model. Output result.
 
-
-flags.DEFINE_string('model','bert-base-uncased','')
-flags.DEFINE_string('pdf',None,'Input file name.', short_name='pd')
-flags.DEFINE_string('txt',None,'Input file name.', short_name='txt')
-flags.DEFINE_string('article',None,'Input file name.', short_name='ar')
-
-FLAGS=flags.FLAGS
-
+### ### ### Import necessary Libraries
+import run.py
+import run_fineTuning.py
 
 def main(_):
     p = create_dataset.Create_DS()
-    if(FLAGS.pdf != None):
-        logging.info("Hello")
-        p.loadPdf()
-    if(FLAGS.txt != None):
-        logging.info("In Text ")
-        p.loadTxt()
-    if(FLAGS.article != None):
-        logging.info("Internet!!")
-        p.loadArticle(FLAGS.article)
-        print(p.ds)
-
+    
     model = QAPipe(p.ds)
-    result = model.get_output("What happens after life")
-    import IPython; IPython.embed(); exit(1);
+    #result = model.get_output("What happens after life")
+   # import IPython; IPython.embed(); exit(1);
 
 if __name__ == '__main__':
     app.run(main)
