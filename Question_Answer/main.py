@@ -13,7 +13,7 @@ model_path = "db"
 tokenizer = BertTokenizer.from_pretrained(model_path)
 model = BertForQuestionAnswering.from_pretrained(model_path)
 
-device = torch.device('cuda' if cuda.is_available() else 'cpu')
+device = torch.device('cuda')
 
 import create_dataset
 from loadModel import *
@@ -50,10 +50,10 @@ context = p.loadTxt(extracted_text)
 question = input("\nPlease enter your question: \n")
 while True:
     #model = QAPipe(p.ds)
-    inputs = tokenizer(question, context, return_tensors="pt")
+    inputs = tokenizer(question, context, return_tensors="pt").to(device)
     
     with torch.no_grad():
-        outputs = model(**inputs).to(device)
+        outputs = model(**inputs)
 
     start_scores = outputs.start_logits.to(device)
     end_scores = outputs.end_logits.to(device)
@@ -62,7 +62,7 @@ while True:
     end_index = torch.argmax(end_scores).to(device)
 
     answer_tokens = inputs["input_ids"][0][start_index : end_index + 1]
-    answer = tokenizer.decode(answer_tokens).to(device)
+    answer = tokenizer.decode(answer_tokens)
 
     wrapper = textwrap.TextWrapper(width=80)
     print() # space
