@@ -79,5 +79,7 @@ for epoch in range(3):
         loss.backward()
         optim.step()
 
+model.save_pretrained("db")
+tokenizer.save_pretrained("db")
 # evaluate results
-model.eval()
+#model.eval()

@@ -34,9 +34,9 @@ extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
 
-### ### ### PRE-TRAINING
+### ### ### PRE-TRAINING & Fine-Tuning
 model = QAPipe(p.ds)
-### ### ### FINE-TUNING
+### ### ###
 
 
 
@@ -45,14 +45,12 @@ while True:
     #model = QAPipe(p.ds)
     answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
     wrapper = textwrap.TextWrapper(width=80)
-    #print(wrapper.fill(p.ds)+"\n") # this prints the context, not needed for the user
     print() # space
-    print("Question: "+question)
+    print("Question: " + question)
     print("Answer : " + answer)
-
+    ###
     flag = True
     flag_N = False
-    
     while flag:
         response = input("\nDo you want to ask another question based on this text (Y/N)? ")
         if response[0] == "Y":
@@ -61,10 +59,10 @@ while True:
         elif response[0] == "N":
             print("\nBye!")
             flag = False
-            flag_N = True
-            
+            flag_N = True      
     if flag_N == True:
         break
+    ###
 
 ### ### ### Model details - outputs analytics on the model
 '''
