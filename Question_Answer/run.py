@@ -12,8 +12,6 @@ import nltk
 import PyPDF2
 from PyPDF2 import PdfReader
 
-question = input("\nPlease enter your question: \n")
-
 ### ### ### creates a dataset that pulls text from PDF - 
 p = create_dataset.Create_DS()
 # Step 1: Extract text from the PDF file
@@ -38,8 +36,11 @@ p.loadTxt(extracted_text)
 
 ### ### ### PRE-TRAINING
 model = QAPipe(p.ds)
+### ### ### FINE-TUNING
 
 
+
+question = input("\nPlease enter your question: \n")
 while True:
     #model = QAPipe(p.ds)
     answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
