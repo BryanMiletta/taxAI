@@ -22,7 +22,7 @@ import textwrap
 import nltk
 import PyPDF2
 from PyPDF2 import PdfReader
-
+from newspaper import Article
 ### (Previous imports and code)
 
 def handle_user_input(model, tokenizer):
@@ -30,8 +30,8 @@ def handle_user_input(model, tokenizer):
         question = input("Enter your question (or type 'exit' to quit): ")
         if question.lower() == 'exit':
             break
-        
-        context = input("Enter the context for your question: ")
+    
+        context = ("John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth Davis is Robert's wife. She teaches at UC Berkeley. Sophia Smith is Elizabeth's daughter. She studies at UC Davis")
 
         # Tokenize the input
         inputs = tokenizer(context, question, return_tensors="pt")
