@@ -29,7 +29,7 @@ def process_text(text):
     article.parse()
     return article.title, article.text
 # Step 3: Call the functions to extract and process the PDF text
-pdf_file_path = 'db/f1040.pdf' 
+pdf_file_path = 'db/f1040.pdf' #TODO change this to pull context from the TAX wiki
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
@@ -41,8 +41,6 @@ context = p.ds
 #QAPipe(context, model_path, tokenizer_path)
 model = QAPipe(context, model_path, tokenizer_path)
 ### ### ###
-
-
 
 question = input("\nPlease enter your question: \n")
 while True:
