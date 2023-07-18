@@ -13,7 +13,7 @@ model_path = "db"
 tokenizer = BertTokenizer.from_pretrained(model_path)
 model = BertForQuestionAnswering.from_pretrained(model_path)
 
-device = torch.device('cuda')
+device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
 import create_dataset
 from loadModel import *
@@ -23,63 +23,88 @@ import nltk
 import PyPDF2
 from PyPDF2 import PdfReader
 
-### ### ### creates a dataset that pulls text from PDF - 
-p = create_dataset.Create_DS()
-# Step 1: Extract text from the PDF file
-def extract_text_from_pdf(file_path):
-    with open(file_path, 'rb') as file:
-        pdf_reader = PdfReader(file)
-        text = ""
-        for page in pdf_reader.pages:
-            text += page.extract_text()
-        return text
-# Step 2: Use Newspaper3k to process the extracted text
-def process_text(text):
-    article = Article(text)
-    article.set_text(text)
-    article.parse()
-    return article.title, article.text
-# Step 3: Call the functions to extract and process the PDF text
-pdf_file_path = 'db/f1040.pdf' 
-extracted_text = extract_text_from_pdf(pdf_file_path)
-p.loadTxt(extracted_text)
-### ### ###
+### (Previous imports and code)
 
-context = p.loadTxt(extracted_text)
+def handle_user_input(model, tokenizer):
+    while True:
+        question = input("Enter your question (or type 'exit' to quit): ")
+        if question.lower() == 'exit':
+            break
+        
+        context = input("Enter the context for your question: ")
 
-question = input("\nPlease enter your question: \n")
-while True:
-    #model = QAPipe(p.ds)
-    inputs = tokenizer(question, context, return_tensors="pt").to(device)
-    
-    with torch.no_grad():
-        outputs = model(**inputs)
+        # Tokenize the input
+        inputs = tokenizer(context, question, return_tensors="pt")
 
-    start_scores = outputs.start_logits.to(device)
-    end_scores = outputs.end_logits.to(device)
+        # Move tensors to the appropriate device
+        inputs = {key: val.to(device) for key, val in inputs.items()}
 
-    start_index = torch.argmax(start_scores).to(device)
-    end_index = torch.argmax(end_scores).to(device)
+        # Get the model's predictions
+        with torch.no_grad():
+            outputs = model(**inputs)
 
-    answer_tokens = inputs["input_ids"][0][start_index : end_index + 1]
-    answer = tokenizer.decode(answer_tokens)
+        start_idx = torch.argmax(outputs.start_logits)
+        end_idx = torch.argmax(outputs.end_logits)
 
-    wrapper = textwrap.TextWrapper(width=80)
-    print() # space
-    print("Question: " + question)
-    print("Answer : " + answer)
-    ###
-    flag = True
-    flag_N = False
-    while flag:
-        response = input("\nDo you want to ask another question based on this text (Y/N)? ")
-        if response[0] == "Y":
-            question = input("\nPlease enter your question: \n")
-            flag = False
-        elif response[0] == "N":
-            print("\nBye!")
-            flag = False
-            flag_N = True      
-    if flag_N == True:
-        break
-    ###
+        # Convert token indices to actual tokens and display the answer
+        answer = tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][start_idx:end_idx+1]))
+        print("Answer:", answer)
+
+def fine_tune_and_save_model(train_dataset, val_dataset, tokenizer):
+    args = TrainingArguments(
+        f"test-squad",
+        evaluation_strategy="epoch",
+        learning_rate=2e-5,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=32,
+        num_train_epochs=3,
+        weight_decay=0.01,
+    )
+    data_collator = default_data_collator
+    trainer = Trainer(
+        model,
+        args,
+        train_dataset=train_dataset,
+        eval_dataset=val_dataset,
+        tokenizer=tokenizer,
+    )
+    trainer.train()
+
+    # Save the fine-tuned model and tokenizer
+    model.save_pretrained("db")
+    tokenizer.save_pretrained("db")
+
+def main():
+    # Access SQuAD fine-tuning datasets
+    train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
+    val_contexts, val_questions, val_answers = read_squad('db/Val.json')
+
+    # Add index
+    add_end_idx(train_answers, train_contexts)
+    add_end_idx(val_answers, val_contexts)
+
+    # Initialize tokenizer
+    tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
+
+    # Train encodings
+    train_encodings = tokenizer(train_contexts, train_questions, truncation=True, padding=True)
+    val_encodings = tokenizer(val_contexts, val_questions, truncation=True, padding=True)
+
+    # Add token positional encodings
+    add_token_positions(train_encodings, train_answers)
+    add_token_positions(val_encodings, val_answers)
+    train_dataset = SquadDataset(train_encodings)
+    val_dataset = SquadDataset(val_encodings)
+
+    # Initialize model
+    model = BertForQuestionAnswering.from_pretrained("bert-base-uncased").to(device)
+
+    # Fine-tune and save the model
+    fine_tune_and_save_model(train_dataset, val_dataset, tokenizer)
+
+    # Handle user input and display model's answers
+    model.eval()  # Set the model to evaluation mode
+    handle_user_input(model, tokenizer)
+
+if __name__ == "__main__":
+    main()
