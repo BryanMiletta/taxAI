@@ -33,9 +33,13 @@ pdf_file_path = 'db/f1040.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
+model_path = "db"   #TODO need to make sure I have the right path
+tokenizer_path = "db" #TODO need to make sure I have the right path
+context = p.ds
 
 ### ### ### PRE-TRAINING & Fine-Tuning
-model = QAPipe(p.ds)
+#QAPipe(context, model_path, tokenizer_path)
+model = QAPipe(context, model_path, tokenizer_path)
 ### ### ###
 
 

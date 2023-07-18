@@ -12,15 +12,15 @@ import numpy as np
 ### ### ### CLASS: Builds the QA pre-trained model
 class QAPipe():
     # initialize the model, indicates the tokenizer and model
-    def __init__(self,context):
+    def __init__(self,context, model_path, tokenizer_path):
         #self.nlp = pipeline("question-answering")
         self.context = context
         self.input_ids = None
         self.text_tokens = None
         self.outputs = None
         self.segment_ids = None
-        self.tokenizer = BertTokenizer.from_pretrained("bert-large-cased-whole-word-masking-finetuned-squad")
-        self.model = BertForQuestionAnswering.from_pretrained("bert-large-cased-whole-word-masking-finetuned-squad")
+        self.tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+        self.model = BertForQuestionAnswering.from_pretrained(model_path)
     
     # intialize the tokenizer
     def __init_tokenizer__(self):
