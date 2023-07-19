@@ -12,6 +12,7 @@ import nltk
 import PyPDF2
 from PyPDF2 import PdfReader
 
+'''
 ### ### ### creates a dataset that pulls text from PDF - 
 p = create_dataset.Create_DS()
 # Step 1: Extract text from the PDF file
@@ -33,6 +34,7 @@ pdf_file_path = 'db/f1040.pdf' #TODO change this to pull context from the TAX wi
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
+'''
 model_path = "db/model"   
 tokenizer_path = "db/model/tokenizer" 
 #TODO change this context later
