@@ -9,8 +9,8 @@ p = newspaper_sandbox.Create_DS()
 #p.loadTxt("John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth Davis is Robert's wife. She teaches at UC Berkeley. Sophia Smith is Elizabeth's daughter. She studies at UC Davis")
 #print(p.ds)
 
-url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
-p.loadArticle(url)
+#url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
+#p.loadArticle(url)
 
 # Step 1: Extract text from the PDF file
 def extract_text_from_pdf(file_path):
@@ -29,13 +29,15 @@ def process_text(text):
     return article.title, article.text
 
 # Step 3: Call the functions to extract and process the PDF text
-#pdf_file_path = 'db/f1040_filled.pdf'
-#extracted_text = extract_text_from_pdf(pdf_file_path)
+pdf_file_path = 'db/f1040_filled.pdf'
+extracted_text = extract_text_from_pdf(pdf_file_path)
+print(extracted_text)
 #title, text = process_text(extracted_text)
 
 # Step 4: Print the extracted title and text
 #print("Title:", title)
 #print("Text:", text)
-print(p.ds)
+#print(p.ds) # used to print URL
+
         
 
