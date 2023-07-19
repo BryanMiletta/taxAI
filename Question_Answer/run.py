@@ -5,12 +5,13 @@
 
 ### ### ### Import necessary Libraries
 import create_dataset
-from loadModel import *
-from run_fineTuning import *
+import loadModel 
 import textwrap
 import nltk
-
-bert_model = 'bert-base-uncased'
+import transformers
+from transformers import BertTokenizerFast, BertForQuestionAnswering
+import torch
+import numpy as np
 
 '''
 ### ### ### creates a dataset that pulls text from PDF - 
@@ -41,13 +42,14 @@ pdf_file_path = 'db/f1040.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
 ### ### ###
 '''
-model_path = "db/model"   
-tokenizer_path = "db/model/tokenizer" 
+
 #context = extracted_text
 context = input("\nPlease enter your context: \n")
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #model = QAPipe(context, model_path, tokenizer_path)
+model_path = "db/model"   
+tokenizer_path = "db/model/tokenizer" 
 model = BertForQuestionAnswering.from_pretrained(model_path)
 tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
 
@@ -56,12 +58,67 @@ tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
 #model = BertForQuestionAnswering.from_pretrained(model_path)
 # Load the tokenizer
 #tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+# get output
+# Function to get output
+def get_output(question, context, model, tokenizer):
+    max_length = 512
+    input_ids = tokenizer.encode(question, context, max_length=max_length, truncation=True)
+    tokens = tokenizer.convert_ids_to_tokens(input_ids)
+    SEP_index = input_ids.index(102)  # Getting index of first SEP token
+    len_question = SEP_index + 1
+    len_answer = len(input_ids) - len_question
+    segment_ids = [0] * len_question + [1] * len_answer  # Segment Ids will 0 for question and 1 for answer
+
+    # Getting start and end scores for the answer and converting input arrays to tensors
+    start_token_scores = model(torch.tensor([input_ids]), token_type_ids=torch.tensor([segment_ids]))[0]
+    end_token_scores = model(torch.tensor([input_ids]), token_type_ids=torch.tensor([segment_ids]))[1]
+
+    # Converting scores tensor to numpy arrays so that we can use numpy functions
+    start_token_scores = start_token_scores.detach().numpy().flatten()
+    end_token_scores = end_token_scores.detach().numpy().flatten()
+
+    # Picking start and end index of an answer based on start/end indices with highest scores
+    answer_start_index = np.argmax(start_token_scores)
+    answer_end_index = np.argmax(end_token_scores)
+
+    # Getting Scores for start and end token of the answer.
+    start_token_score = np.round(start_token_scores[answer_start_index], 2)
+    end_token_score = np.round(end_token_scores[answer_end_index], 2)
+
+    # Cleaning answer text
+    answer = tokens[answer_start_index]
+    for i in range(answer_start_index + 1, answer_end_index + 1):
+        if tokens[i][0:2] == '##':
+            answer += tokens[i][2:]
+        else:
+            answer += ' ' + tokens[i]
+
+    if (
+        answer_start_index == 0
+        or start_token_score < 0
+        or answer == '[SEP]'
+        or answer_end_index < answer_start_index
+    ):
+        answer = "Sorry!, Not able to answer your question. Try a different question related to the context."
+
+    return (
+        answer_start_index,
+        answer_end_index,
+        start_token_score,
+        end_token_score,
+        start_token_scores,
+        end_token_scores,
+        answer,
+    )
 
 question = input("\nPlease enter your question: \n")
 while True:
     #model = QAPipe(p.ds)
-    answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
-    wrapper = textwrap.TextWrapper(width=80)
+    #answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
+    # Get the output
+    answer_start_index, answer_end_index, start_token_score, end_token_score, _, _, answer = get_output(question, context, model, tokenizer)
+
+    wrapper = textwrap.TextWrapper(width=50)
     print() # space
     print("Question: " + question)
     print("Answer : " + answer)
@@ -82,7 +139,7 @@ while True:
     ###
 
 ### ### ### Model details - outputs analytics on the model
-
+'''
 tokens = model.generate_text_from_token()
 print("Passage: ")
 print(wrapper.fill(context)+"\n")
@@ -104,7 +161,7 @@ for token,id in zip(tokens,model.input_ids):
     if id== model.tokenizer.sep_token_id:
         print('')
 
-'''
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 
