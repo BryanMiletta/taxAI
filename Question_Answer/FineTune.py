@@ -6,10 +6,10 @@
 ### ### ### Import necessary Libraries
 import json
 from pathlib import Path
-from transformers import BertForQuestionAnswering, BertTokenizer
+from transformers import BertForQuestionAnswering, BertTokenizerFast
 bert_model = 'bert-base-uncased'
 
-tokenizer = BertTokenizer.from_pretrained(bert_model)
+tokenizer = BertTokenizerFast.from_pretrained(bert_model)
 
 ### Accessor method for SQuAD json file
 def read_squad(path):

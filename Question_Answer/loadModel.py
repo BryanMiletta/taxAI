@@ -5,7 +5,7 @@
 
 ### ### ### Import necessary Libraries
 import transformers
-from transformers import BertTokenizer, BertForQuestionAnswering
+from transformers import BertTokenizerFast, BertForQuestionAnswering
 import torch
 import numpy as np
 
@@ -19,7 +19,7 @@ class QAPipe():
         self.text_tokens = None
         self.outputs = None
         self.segment_ids = None
-        self.tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+        self.tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
         self.model = BertForQuestionAnswering.from_pretrained(model_path)
     
     # intialize the tokenizer
