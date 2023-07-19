@@ -12,8 +12,8 @@ p = newspaper_sandbox.Create_DS()
 #print(p.ds)
 
 url = 'https://en.wikipedia.org/wiki/Taxation_in_the_United_States'
-p.loadArticle(url)
-
+text = p.loadArticle(url)
+'''
 # Step 1: Extract text from the PDF file
 def extract_text_from_pdf(file_path):
     with open(file_path, 'rb') as file:
@@ -29,7 +29,7 @@ def process_text(text):
     article.set_text(text)
     article.parse()
     return article.title, article.text
-
+'''
 # Step 3: Call the functions to extract and process the PDF text
 pdf_file_path = 'db/f1040_filled.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
@@ -38,6 +38,6 @@ extracted_text = extract_text_from_pdf(pdf_file_path)
 # Step 4: Print the extracted title and text
 #print("Title:", title)
 #print("Text:", text)
-print(extracted_text)
+print(text)
         
 
