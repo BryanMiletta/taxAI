@@ -12,6 +12,7 @@ import nltk
 
 bert_model = 'bert-base-uncased'
 
+'''
 ### ### ### creates a dataset that pulls text from PDF - 
 import newspaper_sandbox
 from newspaper import Article
@@ -39,14 +40,16 @@ def process_text(text):
 pdf_file_path = 'db/f1040.pdf'
 extracted_text = extract_text_from_pdf(pdf_file_path)
 ### ### ###
-
+'''
 model_path = "db/model"   
 tokenizer_path = "db/model/tokenizer" 
-context = extracted_text
+#context = extracted_text
+context = input("\nPlease enter your context: \n")
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #QAPipe(context, model_path, tokenizer_path)
 model = QAPipe(context, model_path, tokenizer_path)
+model.eval()
 ### ### ###
 # Load the fine-tuned model
 #model = BertForQuestionAnswering.from_pretrained(model_path)
