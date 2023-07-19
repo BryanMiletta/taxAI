@@ -33,9 +33,10 @@ pdf_file_path = 'db/f1040.pdf' #TODO change this to pull context from the TAX wi
 extracted_text = extract_text_from_pdf(pdf_file_path)
 p.loadTxt(extracted_text)
 ### ### ###
-model_path = "db/model"   #TODO need to make sure I have the right path
-tokenizer_path = "db/model/tokenizer" #TODO need to make sure I have the right path
-context = p.ds
+model_path = "db/model"   
+tokenizer_path = "db/model/tokenizer" 
+#TODO change this context later
+context = "John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth Davis is Robert's wife. She teaches at UC Berkeley. Sophia Smith is Elizabeth's daughter. She studies at UC Davis"
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #QAPipe(context, model_path, tokenizer_path)
