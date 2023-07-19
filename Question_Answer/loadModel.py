@@ -24,13 +24,13 @@ class QAPipe():
     
     # intialize the tokenizer
     def __init_tokenizer__(self):
-    #   self.tokenizer = BertTokenizer.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
-        self.tokenizer = BertTokenizerFast.from_pretrained("db/model/tokenizer")
+        self.tokenizer = BertTokenizer.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
+        #self.tokenizer = BertTokenizerFast.from_pretrained("db/model/tokenizer")
     
     # intialize the model
     def __init_model__(self):
-    #    self.model = BertForQuestionAnswering.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
-        self.model = BertForQuestionAnswering.from_pretrained("db/model")
+        self.model = BertForQuestionAnswering.from_pretrained("deepset/bert-large-cased-whole-word-masking-squad2")
+        #self.model = BertForQuestionAnswering.from_pretrained("db/model")
 
     # get IDs 
     def get_ids(self):
