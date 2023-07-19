@@ -42,8 +42,12 @@ context = "John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth 
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #QAPipe(context, model_path, tokenizer_path)
-model = QAPipe(context, model_path, tokenizer_path)
+#model = QAPipe(context, model_path, tokenizer_path)
 ### ### ###
+# Load the fine-tuned model
+model = BertForQuestionAnswering.from_pretrained(model_path)
+# Load the tokenizer
+tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
 
 question = input("\nPlease enter your question: \n")
 while True:
