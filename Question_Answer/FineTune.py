@@ -58,22 +58,15 @@ def add_end_idx(answers, contexts):
 def add_token_positions(encodings, answers):
     start_positions = []
     end_positions = []
-    for answer in answers:
-        # Tokenize the answer text and get the tokenized answer
-        answer_tokens = tokenizer.encode(answer['text'])
-        
-        # Find the start and end token positions in the tokenized input
-        start_position = None
-        end_position = None
-        for i, token in enumerate(encodings.tokens[1:-1]):  # Exclude [CLS] and [SEP] tokens
-            if token == answer_tokens[0]:
-                if encodings.tokens[i+1:i+len(answer_tokens)-1] == answer_tokens[1:-1]:
-                    start_position = i
-                    end_position = i + len(answer_tokens) - 3
-                    break
+    for i in range(len(answers)):
+        start_positions.append(encodings.char_to_token(i, answers[i]['answer_start']))
+        end_positions.append(encodings.char_to_token(i, answers[i]['answer_end'] - 1))
 
-        start_positions.append(start_position)
-        end_positions.append(end_position)
+        # if start position is None, the answer passage has been truncated
+        if start_positions[-1] is None:
+            start_positions[-1] = tokenizer.model_max_length
+        if end_positions[-1] is None:
+            end_positions[-1] = tokenizer.model_max_length
 
     encodings.update({'start_positions': start_positions, 'end_positions': end_positions})
 ###
