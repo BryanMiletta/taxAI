@@ -47,9 +47,10 @@ tokenizer_path = "db/model/tokenizer"
 context = input("\nPlease enter your context: \n")
 
 ### ### ### PRE-TRAINING & Fine-Tuning
-#QAPipe(context, model_path, tokenizer_path)
-model = QAPipe(context, model_path, tokenizer_path)
-model.eval()
+#model = QAPipe(context, model_path, tokenizer_path)
+model = BertForQuestionAnswering.from_pretrained(model_path)
+tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
+
 ### ### ###
 # Load the fine-tuned model
 #model = BertForQuestionAnswering.from_pretrained(model_path)
