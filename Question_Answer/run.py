@@ -12,6 +12,7 @@ import nltk
 import PyPDF2
 from PyPDF2 import PdfReader
 
+bert_model = 'bert-base-uncased'
 '''
 ### ### ### creates a dataset that pulls text from PDF - 
 p = create_dataset.Create_DS()
@@ -42,12 +43,12 @@ context = "John is a 10 year old boy. He is the son of Robert Smith.  Elizabeth 
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #QAPipe(context, model_path, tokenizer_path)
-#model = QAPipe(context, model_path, tokenizer_path)
+model = QAPipe(context, model_path, tokenizer_path)
 ### ### ###
 # Load the fine-tuned model
-model = BertForQuestionAnswering.from_pretrained(model_path)
+#model = BertForQuestionAnswering.from_pretrained(model_path)
 # Load the tokenizer
-tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+#tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
 
 question = input("\nPlease enter your question: \n")
 while True:

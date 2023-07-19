@@ -8,6 +8,8 @@ from FineTune import *
 from create_Squad_DS import *
 import torch
 import torch.cuda as cuda
+from transformers import BertForQuestionAnswering, BertTokenizer
+bert_model = 'bert-base-uncased'
 
 device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
@@ -21,8 +23,8 @@ add_end_idx(train_answers, train_contexts) #TODO might need to correct end_idx s
 add_end_idx(val_answers, val_contexts) 
 
 # import tokenizer
-from transformers import BertTokenizerFast
-tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
+
+tokenizer = BertTokenizer.from_pretrained(bert_model)
 
 # Train encodings
 train_encodings = tokenizer(train_contexts, train_questions, truncation=True, padding=True)
@@ -33,8 +35,8 @@ add_token_positions(train_encodings, train_answers)
 add_token_positions(val_encodings, val_answers)
 train_dataset = SquadDataset(train_encodings)
 val_dataset = SquadDataset(val_encodings)
-from transformers import BertForQuestionAnswering
-model = BertForQuestionAnswering.from_pretrained("bert-base-uncased").to(device)
+
+model = BertForQuestionAnswering.from_pretrained(bert_model).to(device)
 
 # Optimizer
 from torch.utils.data import DataLoader
