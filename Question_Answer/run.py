@@ -75,10 +75,10 @@ while True:
     ###
 
 ### ### ### Model details - outputs analytics on the model
-'''
+
 tokens = model.generate_text_from_token()
 print("Passage: ")
-print(wrapper.fill(p.ds)+"\n")
+print(wrapper.fill(context)+"\n")
 print("Question: \n"+question+"\n")
 
 
@@ -97,6 +97,7 @@ for token,id in zip(tokens,model.input_ids):
     if id== model.tokenizer.sep_token_id:
         print('')
 
+'''
 import matplotlib.pyplot as plt
 import seaborn as sns
 
