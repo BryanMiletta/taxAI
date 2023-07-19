@@ -17,8 +17,8 @@ train_contexts, train_questions, train_answers = read_squad('db/json_file.json')
 val_contexts, val_questions, val_answers = read_squad('db/Val.json') #TODO I have not modified this from current
 
 # Add index
-add_end_idx(train_answers, train_contexts)
-add_end_idx(val_answers, val_contexts)
+add_end_idx(train_answers, train_contexts) #TODO might need to correct end_idx setting
+add_end_idx(val_answers, val_contexts) 
 
 # import tokenizer
 from transformers import BertTokenizerFast
@@ -79,7 +79,7 @@ for epoch in range(3):
         loss.backward()
         optim.step()
 
-model.save_pretrained("db")
-tokenizer.save_pretrained("db")
+model.save_pretrained("db/model")
+tokenizer.save_pretrained("db/model/tokenizer")
 # evaluate results
 #model.eval()
