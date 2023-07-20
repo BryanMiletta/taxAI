@@ -16,7 +16,7 @@ device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
 ### Access SQuAD fine-tuning datasets
 train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
-val_contexts, val_questions, val_answers = read_squad('db/dev-v2.0.json') 
+val_contexts, val_questions, val_answers = read_squad('db/Val.json') #TODO can change this to dev-2.0.json to improve performance.
 
 # Add index
 add_end_idx(train_answers, train_contexts) #TODO might need to correct end_idx setting
