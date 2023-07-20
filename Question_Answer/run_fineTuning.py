@@ -16,7 +16,7 @@ device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
 ### Access SQuAD fine-tuning datasets
 train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
-val_contexts, val_questions, val_answers = read_squad('db/Val.json') #TODO I have not modified this from current
+val_contexts, val_questions, val_answers = read_squad('db/dev-v2.0.json') 
 
 # Add index
 add_end_idx(train_answers, train_contexts) #TODO might need to correct end_idx setting
@@ -84,4 +84,4 @@ for epoch in range(3):
 model.save_pretrained("db/model")
 tokenizer.save_pretrained("db/model/tokenizer")
 # evaluate results
-#model.eval()
+model.eval()
