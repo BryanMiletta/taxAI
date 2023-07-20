@@ -25,7 +25,7 @@ model.to(device)
 squad_processor = SquadV2Processor()
 
 # Load the SQuAD training dataset
-train_dataset = squad_processor.get_train_examples('path_to_train_dataset')
+train_dataset = squad_processor.get_train_examples('db')
 train_features, train_dataset = squad_convert_examples_to_features(
     examples=train_dataset,
     tokenizer=tokenizer,
@@ -51,7 +51,7 @@ for epoch in range(3):  # Example: Run 3 epochs
         optimizer.zero_grad()
 
 # Load the SQuAD evaluation dataset
-eval_dataset = squad_processor.get_dev_examples('path_to_eval_dataset')
+eval_dataset = squad_processor.get_dev_examples('db')
 eval_features, eval_dataset = squad_convert_examples_to_features(
     examples=eval_dataset,
     tokenizer=tokenizer,
@@ -83,8 +83,8 @@ predictions = compute_predictions_logits(
     20,  # n_best_size, example: return top 20 predictions
     30,  # max_answer_length, example: limit answer length to 30 tokens
     True,  # do_lower_case, example: use lower case
-    'path_to_eval_dataset',  # Path to SQuAD eval dataset for evaluating exact match and f1 score
-    'temp_dir'  # Temporary directory for writing intermediate files
+    'db',  # Path to SQuAD eval dataset for evaluating exact match and f1 score
+    'db/temp'  # Temporary directory for writing intermediate files
 )
 
 # Print predictions
@@ -93,5 +93,5 @@ for key in predictions.keys():
     print('Answer:', predictions[key])
 
 # Save the fine-tuned BERT model
-model.save_pretrained('path_to_save_model')
-tokenizer.save_pretrained('path_to_save_model')
+model.save_pretrained('db/temp/model')
+tokenizer.save_pretrained('db/temp/model')
