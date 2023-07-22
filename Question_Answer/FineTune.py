@@ -7,7 +7,7 @@
 import json
 from pathlib import Path
 from transformers import BertForQuestionAnswering, BertTokenizerFast
-bert_model = 'bert-base-uncased'
+bert_model = 'bert-base-cased'
 
 tokenizer = BertTokenizerFast.from_pretrained(bert_model)
 

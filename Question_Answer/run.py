@@ -48,17 +48,12 @@ context = input("\nPlease enter your context: \n")
 
 ### ### ### PRE-TRAINING & Fine-Tuning
 #model = QAPipe(context, model_path, tokenizer_path)
-model_path = "db/model"   
-tokenizer_path = "db/model/tokenizer" 
+model_path = "db/model2"   
+tokenizer_path = "db/model2/tokenizer2" 
 model = BertForQuestionAnswering.from_pretrained(model_path)
 tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
 
 ### ### ###
-# Load the fine-tuned model
-#model = BertForQuestionAnswering.from_pretrained(model_path)
-# Load the tokenizer
-#tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
-# get output
 # Function to get output
 def get_output(question, context, model, tokenizer):
     max_length = 512
@@ -92,14 +87,6 @@ def get_output(question, context, model, tokenizer):
             answer += tokens[i][2:]
         else:
             answer += ' ' + tokens[i]
-
-    if (
-        answer_start_index == 0
-        or start_token_score < 0
-        or answer == '[SEP]'
-        or answer_end_index < answer_start_index
-    ):
-        answer = "Sorry!, Not able to answer your question. Try a different question related to the context."
 
     return (
         answer_start_index,

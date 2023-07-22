@@ -9,7 +9,7 @@ from create_Squad_DS import *
 import torch
 import torch.cuda as cuda
 from transformers import BertForQuestionAnswering, BertTokenizerFast
-bert_model = 'bert-base-uncased'
+bert_model = 'bert-base-cased'
 
 device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
@@ -81,7 +81,7 @@ for epoch in range(3):
         loss.backward()
         optim.step()
 
-model.save_pretrained("db/model")
-tokenizer.save_pretrained("db/model/tokenizer")
+model.save_pretrained("db/model2")
+tokenizer.save_pretrained("db/model2/tokenizer2")
 # evaluate results
 model.eval()
