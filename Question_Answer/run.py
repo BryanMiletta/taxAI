@@ -9,7 +9,7 @@ import loadModel
 import textwrap
 import nltk
 import transformers
-from transformers import BertTokenizerFast, BertForQuestionAnswering
+from transformers import BertTokenizer, BertForQuestionAnswering
 import torch
 import numpy as np
 
@@ -47,16 +47,21 @@ extracted_text = extract_text_from_pdf(pdf_file_path)
 context = input("\nPlease enter your context: \n")
 
 ### ### ### PRE-TRAINING & Fine-Tuning
-#model = QAPipe(context, model_path, tokenizer_path)
-model_path = "db/model2"   
-tokenizer_path = "db/model2/tokenizer2" 
+#model_path =  'db/model_finetune'
+#tokenizer_path =  'db/model_finetune/tokenizer'
+model_path =  'db/model2'
+tokenizer_path =  'db/model2/tokenizer2'
+#model_path =  'bert-base-cased'
+#tokenizer_path =  'bert-base-cased'
 model = BertForQuestionAnswering.from_pretrained(model_path)
-tokenizer = BertTokenizerFast.from_pretrained(tokenizer_path)
+tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
 
 ### ### ###
 # Function to get output
 def get_output(question, context, model, tokenizer):
-    max_length = 512
+    
+    max_length = 384
+    
     input_ids = tokenizer.encode(question, context, max_length=max_length, truncation=True)
     tokens = tokenizer.convert_ids_to_tokens(input_ids)
     SEP_index = input_ids.index(102)  # Getting index of first SEP token
@@ -104,6 +109,7 @@ while True:
     #answer_start_index,answer_end_index,start_token_score,end_token_score,s_Scores,e_Scores,answer=model.get_output(question)
     # Get the output
     answer_start_index, answer_end_index, start_token_score, end_token_score, _, _, answer = get_output(question, context, model, tokenizer)
+    
 
     wrapper = textwrap.TextWrapper(width=50)
     print() # space

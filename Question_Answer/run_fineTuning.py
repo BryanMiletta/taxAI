@@ -16,7 +16,7 @@ device = torch.device('cuda' if cuda.is_available() else 'cpu')
 
 ### Access SQuAD fine-tuning datasets
 train_contexts, train_questions, train_answers = read_squad('db/json_file.json') 
-val_contexts, val_questions, val_answers = read_squad('db/Val.json') #TODO can change this to dev-2.0.json to improve performance.
+val_contexts, val_questions, val_answers = read_squad('db/dev-v2.0.json') #TODO can change this to dev-2.0.json to improve performance.
 
 # Add index
 add_end_idx(train_answers, train_contexts) #TODO might need to correct end_idx setting
@@ -44,10 +44,10 @@ from transformers import AdamW,TrainingArguments, Trainer,default_data_collator
 args = TrainingArguments(
     f"test-squad",
     evaluation_strategy = "epoch",
-    learning_rate=2e-5,
-    per_device_train_batch_size=16,
-    per_device_eval_batch_size=32,
-    num_train_epochs=3,
+    learning_rate=3e-5,
+    per_device_train_batch_size=12,
+    per_device_eval_batch_size=12,
+    num_train_epochs=2.0,
     weight_decay=0.01,
 )
 data_collator = default_data_collator
@@ -64,10 +64,10 @@ trainer.train()
 model.to(device)
 model.train()
 
-train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True, pin_memory=True, num_workers=0)
+train_loader = DataLoader(train_dataset, batch_size=12, shuffle=True, pin_memory=True, num_workers=0)
 
 # optimize
-optim = AdamW(model.parameters(), lr=5e-5)
+optim = AdamW(model.parameters(), lr=3e-5)
 
 for epoch in range(3):
     for batch in train_loader:
@@ -81,7 +81,7 @@ for epoch in range(3):
         loss.backward()
         optim.step()
 
-model.save_pretrained("db/model2")
-tokenizer.save_pretrained("db/model2/tokenizer2")
+model.save_pretrained("db/model_finetune")
+tokenizer.save_pretrained("db/model_finetune/tokenizer")
 # evaluate results
-model.eval()
+#model.eval()
